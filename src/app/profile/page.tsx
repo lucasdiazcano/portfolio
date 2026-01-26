@@ -1,10 +1,24 @@
 import Navigation from '../components/Navigation';
+import Dither from '../components/Dither';
 import Image from 'next/image';
 
 export default function Profile() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
+    <div className="min-h-screen bg-black text-white relative">
+      {/* Fondo animado con Dither */}
+      <Dither
+        waveColor={[1, 0.5, 0]}
+        disableAnimation={false}
+        enableMouseInteraction={true}
+        mouseRadius={0.25}
+        colorNum={16}
+        waveAmplitude={0.2}
+        waveFrequency={1.5}
+        waveSpeed={0.02}
+        pixelSize={1}
+      />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Profile</h1>
@@ -20,7 +34,7 @@ export default function Profile() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-10 md:space-y-12">
             {/* About Section */}
-            <section className="bg-gray-900 border border-gray-800 rounded-lg p-10 md:p-12">
+            <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 shadow-2xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">About</h2>
               <p className="text-gray-300 leading-relaxed text-lg md:text-xl">
                 Senior Frontend Engineer with 5+ years of experience specializing in the React ecosystem. 
@@ -31,7 +45,7 @@ export default function Profile() {
             </section>
 
             {/* Employment History */}
-            <section className="bg-gray-900 border border-gray-800 rounded-lg p-10 md:p-12">
+            <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 shadow-2xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-8">Employment History</h2>
               
               <div className="space-y-6">
@@ -52,7 +66,7 @@ export default function Profile() {
             </section>
 
             {/* Education */}
-            <section className="bg-gray-900 border border-gray-800 rounded-lg p-10 md:p-12">
+            <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 shadow-2xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-8">Education</h2>
               
               <div>
@@ -85,7 +99,7 @@ export default function Profile() {
           {/* Sidebar */}
           <div className="space-y-8 md:space-y-10">
             {/* Profile Photo */}
-            <section className="bg-gray-900 border border-gray-800 rounded-lg p-8 md:p-10">
+            <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 shadow-2xl">
               <div className="flex justify-center">
                 <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gray-700">
                   <Image
@@ -100,7 +114,7 @@ export default function Profile() {
             </section>
 
             {/* Contact Info */}
-            <section className="bg-gray-900 border border-gray-800 rounded-lg p-8 md:p-10">
+            <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 shadow-2xl">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">Contact</h2>
               <div className="space-y-4 text-base md:text-lg">
                 <div className="flex items-center gap-3 text-gray-300">
@@ -136,7 +150,7 @@ export default function Profile() {
             </section>
 
             {/* Skills */}
-            <section className="bg-gray-900 border border-gray-800 rounded-lg p-8 md:p-10">
+            <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 shadow-2xl">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">Skills</h2>
               <div className="space-y-4">
                 <div>

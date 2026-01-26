@@ -21,7 +21,7 @@ export default function ProjectCard({
   specialBadge
 }: ProjectCardProps) {
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 md:p-10 hover:border-gray-700 transition-colors">
+    <div className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 hover:border-white/20 transition-colors shadow-2xl">
       <div className="flex items-center gap-3 mb-3">
         <h3 className="text-2xl md:text-3xl font-bold">{title}</h3>
         {specialBadge && (

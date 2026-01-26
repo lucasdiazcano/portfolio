@@ -1,3 +1,5 @@
+'use client';
+
 import Navigation from './components/Navigation';
 import ProjectCard from './components/ProjectCard';
 import Dither from './components/Dither';
@@ -12,15 +14,15 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white relative">
       {/* Fondo animado con Dither */}
       <Dither
-        waveColor={[0.6, 0.6, 0.7]}
+        waveColor={[1, 0.5, 0]}
         disableAnimation={false}
         enableMouseInteraction={true}
-        mouseRadius={0.5}
-        colorNum={6}
-        waveAmplitude={0.4}
-        waveFrequency={2.5}
-        waveSpeed={0.04}
-        pixelSize={3}
+        mouseRadius={0.25}
+        colorNum={16}
+        waveAmplitude={0.2}
+        waveFrequency={1.5}
+        waveSpeed={0.05}
+        pixelSize={1}
       />
       
       {/* Contenido principal con z-index superior y efecto glass */}
@@ -52,13 +54,13 @@ export default function Home() {
           <Navigation />
 
           {/* Featured Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div id="projects" className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {projects.slice(0, 3).map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}
             
             {/* Education Card - caso especial */}
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 md:p-10 hover:border-gray-700 transition-colors">
+            <div className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 hover:border-white/20 transition-colors shadow-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <h3 className="text-2xl md:text-3xl font-bold">{content.education.title}</h3>
                 <span className="px-3 py-1.5 bg-red-600 text-white text-sm md:text-base font-bold rounded">

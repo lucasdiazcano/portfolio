@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GradualBlur from "@/components/GradualBlur";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,16 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <GradualBlur 
+          target="page"
+          position="bottom"
+          height="12rem"
+          strength={20}
+          divCount={1}
+          curve="ease-out"
+          opacity={1}
+          zIndex={9999}
+        />
       </body>
     </html>
   );

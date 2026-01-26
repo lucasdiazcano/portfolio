@@ -6,10 +6,21 @@ import { usePathname } from 'next/navigation';
 export default function Navigation() {
   const pathname = usePathname();
 
+  const handleViewWork = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  };
+
   const navItems = [
-    { href: '/', label: 'View Work', icon: '↓', isPrimary: true },
+    { href: '/', label: 'View Work', icon: '↓', isPrimary: true, onClick: handleViewWork },
     { href: '/projects', label: 'Projects', icon: '🖥️', isPrimary: false },
     { href: '/profile', label: 'Profile', icon: '👤', isPrimary: false },
+    { href: '/blog', label: 'Blog', icon: '📝', isPrimary: false },
   ];
 
   return (
@@ -20,6 +31,7 @@ export default function Navigation() {
           <Link
             key={item.href}
             href={item.href}
+            onClick={item.onClick}
             className={`
               px-6 py-3 rounded-lg border-2 font-medium transition-all
               ${

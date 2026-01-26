@@ -1,4 +1,5 @@
 import Navigation from '../components/Navigation';
+import Dither from '../components/Dither';
 
 export default function Projects() {
   const projects = [
@@ -33,8 +34,21 @@ export default function Projects() {
 ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
+    <div className="min-h-screen bg-black text-white relative">
+      {/* Fondo animado con Dither */}
+      <Dither
+        waveColor={[1, 0.5, 0]}
+        disableAnimation={false}
+        enableMouseInteraction={true}
+        mouseRadius={0.25}
+        colorNum={16}
+        waveAmplitude={0.2}
+        waveFrequency={1.5}
+        waveSpeed={0.02}
+        pixelSize={1}
+      />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Projects</h1>
@@ -51,7 +65,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-900 border border-gray-800 rounded-lg p-10 md:p-12 hover:border-gray-700 transition-colors"
+              className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 hover:border-white/20 transition-colors shadow-2xl"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                 <div>
