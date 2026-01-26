@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation';
 import Dither from '../components/Dither';
 import BlogCard from '../components/BlogCard';
 import BlogForm from '../components/BlogForm';
+import { ditherConfig } from '../config/dither';
 
 export interface BlogEntry {
   id: string;
@@ -31,17 +32,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-black text-white relative">
       {/* Fondo animado con Dither */}
-      <Dither
-        waveColor={[1, 0.5, 0]}
-        disableAnimation={false}
-        enableMouseInteraction={true}
-        mouseRadius={0.25}
-        colorNum={16}
-        waveAmplitude={0.2}
-        waveFrequency={1.5}
-        waveSpeed={0.05}
-        pixelSize={1}
-      />
+      <Dither {...ditherConfig} />
       
       {/* Contenido principal */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
