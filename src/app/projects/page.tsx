@@ -2,35 +2,35 @@ import Navigation from '../components/Navigation';
 
 export default function Projects() {
   const projects = [
-    {
-      title: 'Banco BBVA - Mobile & Web Renewal',
-      description: 'Renovated frontend architecture for mobile/web apps using Open Cells. Developed cross-platform features for seamless user experience. Modernized legacy flows into scalable, modular architecture.',
-      technologies: ['React', 'Open Cells', 'JavaScript', 'SCSS', 'Fintech'],
-      sector: 'Fintech',
-      client: 'Banco BBVA',
-      location: 'Argentina',
-      context: 'Local team in Argentina',
-    },
-    {
-      title: 'Johnson & Johnson - Data Visualization',
-      description: 'Created high-performance statistical data app for analytics with React, Redux, and SCSS. Built complex dashboards with Recharts for real-time insights. Ensured UI/UX precision for intuitive visual components.',
-      technologies: ['React', 'Redux', 'Recharts', 'SCSS', 'Data Visualization'],
-      sector: 'Healthcare & Analytics',
-      client: 'Johnson & Johnson',
-      location: 'USA',
-      context: 'International team with colleagues from USA and Europe.',
-      englishCommunication: true,
-    },
-    {
-      title: 'Banco Hipotecario - Core Banking Development',
-      description: 'Developed a scalable banking application from scratch. Utilized React, Redux, JavaScript, and SCSS for technological enhancements. Established technical documentation and Code Review protocols, reducing development lead times. Designed dynamic, reusable components for consistency and accessibility.',
-      technologies: ['React', 'Redux', 'JavaScript', 'SCSS', 'Agile/SCRUM'],
-      sector: 'Fintech',
-      client: 'Banco Hipotecario',
-      location: 'Argentina',
-      context: 'Local team in Argentina',
-    },
-  ];
+  {
+    title: 'Banco BBVA - Mobile & Web Renewal',
+    description: 'Led the architectural renovation of BBVA’s mobile and web platforms using **TypeScript** and Micro-frontends (Open Cells). Engineered a high-performance modular system to modernize legacy flows, significantly improving developer velocity and cross-platform consistency.',
+    technologies: ['React', 'TypeScript', 'Open Cells', 'Micro-frontends', 'Fintech'],
+    sector: 'Fintech',
+    client: 'Banco BBVA',
+    location: 'Argentina',
+    context: 'Fintech digital transformation at scale',
+  },
+  {
+    title: 'Johnson & Johnson - Data Visualization',
+    description: 'Developed a mission-critical analytics platform for global teams (USA & Europe). Built complex, real-time dashboards with **Recharts** and **Redux**, ensuring 100% data integrity through strict **TypeScript** typing and **Unit Testing (Jest)**.',
+    technologies: ['React', 'TypeScript', 'Redux', 'Recharts', 'Jest', 'Healthcare'],
+    sector: 'Healthcare & Analytics',
+    client: 'Johnson & Johnson',
+    location: 'USA',
+    context: 'International remote team (USA & Europe)',
+    englishCommunication: true,
+  },
+  {
+    title: 'Banco Hipotecario - Core Banking',
+    description: 'Architected and launched a comprehensive core banking platform from scratch. Established rigorous **Code Review protocols** and technical documentation that reduced development lead times by 30%. Focused on **Accessibility (WCAG)** and reusable component patterns.',
+    technologies: ['React', 'Redux', 'TypeScript', 'Cypress', 'Agile/SCRUM'],
+    sector: 'Fintech',
+    client: 'Banco Hipotecario',
+    location: 'Argentina',
+    context: 'Greenfield project development',
+  },
+];
 
   return (
     <div className="min-h-screen bg-black text-white">
