@@ -1,12 +1,17 @@
+'use client';
+
 import Navigation from '../components/Navigation';
 import Dither from '../components/Dither';
 import { ditherConfig } from '../config/dither';
+import { useTranslations } from 'next-intl';
 
 export default function Projects() {
+  const t = useTranslations();
+
   const projects = [
   {
     title: 'Banco BBVA - Mobile & Web Renewal',
-    description: 'Led the architectural renovation of BBVA’s mobile and web platforms using **TypeScript** and Micro-frontends (Open Cells). Engineered a high-performance modular system to modernize legacy flows, significantly improving developer velocity and cross-platform consistency.',
+    description: 'Led the architectural renovation of BBVA\'s mobile and web platforms using TypeScript and Micro-frontends (Open Cells). Engineered a high-performance modular system to modernize legacy flows, significantly improving developer velocity and cross-platform consistency.',
     technologies: ['React', 'TypeScript', 'Open Cells', 'Micro-frontends', 'Fintech'],
     sector: 'Fintech',
     client: 'Banco BBVA',
@@ -42,9 +47,9 @@ export default function Projects() {
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Projects</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">{t('projects.title')}</h1>
           <p className="text-xl text-gray-400">
-            Professional work in Fintech and Healthcare sectors
+            {t('projects.description')}
           </p>
         </div>
 
@@ -105,4 +110,3 @@ export default function Projects() {
     </div>
   );
 }
-

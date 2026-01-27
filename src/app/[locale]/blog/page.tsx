@@ -6,6 +6,7 @@ import Dither from '../components/Dither';
 import BlogCard from '../components/BlogCard';
 import BlogForm from '../components/BlogForm';
 import { ditherConfig } from '../config/dither';
+import { useTranslations } from 'next-intl';
 
 export interface BlogEntry {
   id: string;
@@ -16,6 +17,7 @@ export interface BlogEntry {
 }
 
 export default function BlogPage() {
+  const t = useTranslations('blog');
   const [entries, setEntries] = useState<BlogEntry[]>([]);
   const [showForm, setShowForm] = useState(false);
 
@@ -41,9 +43,9 @@ export default function BlogPage() {
           
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Blog</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">{t('title')}</h1>
             <p className="text-xl text-gray-400 mb-8">
-              Mis pensamientos, ideas y experiencias
+              {t('description')}
             </p>
             
             {/* Botón para mostrar/ocultar formulario */}

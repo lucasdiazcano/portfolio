@@ -1,10 +1,13 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navigation() {
   const pathname = usePathname();
+  const t = useTranslations('navigation');
 
   const handleViewWork = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (pathname === '/') {
@@ -18,13 +21,14 @@ export default function Navigation() {
 
   const navItems = [
     { href: '/', label: 'View Work', icon: '↓', isPrimary: true, onClick: handleViewWork },
-    { href: '/projects', label: 'Projects', icon: '🖥️', isPrimary: false },
-    { href: '/profile', label: 'Profile', icon: '👤', isPrimary: false },
-    { href: '/blog', label: 'Blog', icon: '📝', isPrimary: false },
+    { href: '/projects', label: t('projects'), icon: '🖥️', isPrimary: false },
+    { href: '/profile', label: t('profile'), icon: '👤', isPrimary: false },
+    { href: '/blog', label: t('blog'), icon: '📝', isPrimary: false },
   ];
 
   return (
     <nav className="flex flex-wrap justify-center gap-4 mb-12">
+      <LanguageSwitcher />
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         return (

@@ -1,0 +1,38 @@
+{
+  "navigation": {
+    "profile": "Perfil",
+    "projects": "Proyectos",
+    "blog": "Blog"
+  },
+  "hero": {
+    "name": "Lucas Diaz Cano",
+    "title": "Ingeniero Frontend Senior construyendo aplicaciones web escalables y liderando equipos de alto rendimiento en los sectores Fintech y Healthcare.",
+    "altImage": "Lucas Diaz Cano"
+  },
+  "education": {
+    "title": "Bootcamp de Programación",
+    "institution": "Plataforma 5",
+    "period": "Enero - Abril 2021",
+    "focus": "Enfoque: React, JavaScript, Node, SASS"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "description": "Algunos de mis trabajos recientes"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Pensamientos y tutoriales",
+    "form": {
+      "title": "Título",
+      "content": "Contenido",
+      "tags": "Etiquetas (separadas por comas)",
+      "submit": "Publicar",
+      "cancel": "Cancelar"
+    }
+  },
+  "common": {
+    "viewProject": "Ver Proyecto",
+    "readMore": "Leer más",
+    "backHome": "Volver al Inicio"
+  }
+}
