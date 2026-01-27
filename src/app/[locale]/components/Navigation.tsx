@@ -1,7 +1,6 @@
 'use client';
 
-import { Link } from '@/i18n/routing';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -30,7 +29,11 @@ export default function Navigation() {
     <nav className="flex flex-wrap justify-center gap-4 mb-12">
       <LanguageSwitcher />
       {navItems.map((item) => {
-        const isActive = pathname === item.href;
+        // Para '/' solo activar si estamos exactamente en '/', para otros usar startsWith
+        const isActive = item.href === '/' 
+          ? pathname === '/' || pathname === ''
+          : pathname.startsWith(item.href);
+        
         return (
           <Link
             key={item.href}
@@ -39,13 +42,9 @@ export default function Navigation() {
             className={`
               px-6 py-3 rounded-lg border-2 font-medium transition-all
               ${
-                item.isPrimary
-                  ? isActive
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'bg-primary text-primary-foreground border-primary hover:bg-primary/90'
-                  : isActive
-                  ? 'bg-secondary text-secondary-foreground border-border'
-                  : 'bg-transparent text-muted-foreground border-border hover:border-primary/50 hover:text-foreground'
+                isActive
+                  ? 'bg-primary text-primary-foreground border-primary shadow-lg'
+                  : 'bg-transparent text-muted-foreground border-border hover:border-primary/50 hover:text-foreground hover:bg-card/20'
               }
             `}
           >
