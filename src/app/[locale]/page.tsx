@@ -4,12 +4,27 @@ import Navigation from './components/Navigation';
 import ProjectCard from './components/ProjectCard';
 import Dither from './components/Dither';
 import Image from 'next/image';
-import { projects } from './data/projects';
 import { ditherConfig } from './config/dither';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
   const t = useTranslations();
+  
+  // Obtener proyectos desde las traducciones
+  const projectsData = t.raw('projects.list');
+  
+  // Mapear los proyectos al formato esperado por ProjectCard
+  const projects = projectsData.map((project: any) => ({
+    id: project.title.toLowerCase().replace(/\s+/g, '-'),
+    title: project.title,
+    location: `📍 ${project.location}${project.context ? ` • ${project.context}` : ''}`,
+    description: project.description,
+    tags: project.technologies.slice(0, 3),
+    highlightBadge: project.englishCommunication ? {
+      text: `🇺🇸 ${t('projects.englishCommunication')}`,
+      variant: 'highlight' as const
+    } : undefined
+  }));
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -46,7 +61,7 @@ export default function Home() {
 
           {/* Featured Projects Grid */}
           <div id="projects" className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-            {projects.slice(0, 3).map((project) => (
+            {projects.slice(0, 3).map((project: any) => (
               <ProjectCard key={project.id} {...project} />
             ))}
             

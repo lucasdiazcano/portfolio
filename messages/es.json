@@ -17,7 +17,39 @@
   },
   "projects": {
     "title": "Proyectos",
-    "description": "Algunos de mis trabajos recientes"
+    "description": "Algunos de mis trabajos recientes",
+    "englishCommunication": "COMUNICACIÓN EN INGLÉS",
+    "allTeamEnglish": "Toda la comunicación del equipo en inglés",
+    "list": [
+      {
+        "title": "Banco BBVA - Renovación Mobile & Web",
+        "description": "Lideré la renovación arquitectónica de las plataformas móvil y web de BBVA usando TypeScript y Micro-frontends (Open Cells). Diseñé un sistema modular de alto rendimiento para modernizar flujos legacy, mejorando significativamente la velocidad de desarrollo y la consistencia multiplataforma.",
+        "technologies": ["React", "TypeScript", "Open Cells", "Micro-frontends", "Fintech"],
+        "sector": "Fintech",
+        "client": "Banco BBVA",
+        "location": "Argentina",
+        "context": "Transformación digital Fintech a gran escala"
+      },
+      {
+        "title": "Johnson & Johnson - Visualización de Datos",
+        "description": "Desarrollé una plataforma de análisis crítica para equipos globales (USA & Europa). Construí dashboards complejos en tiempo real con Recharts y Redux, asegurando 100% de integridad de datos a través de tipado estricto con TypeScript y Unit Testing (Jest).",
+        "technologies": ["React", "TypeScript", "Redux", "Recharts", "Jest", "Healthcare"],
+        "sector": "Healthcare & Analytics",
+        "client": "Johnson & Johnson",
+        "location": "USA",
+        "context": "Equipo remoto internacional (USA & Europa)",
+        "englishCommunication": true
+      },
+      {
+        "title": "Banco Hipotecario - Core Banking",
+        "description": "Arquitecturé y lancé una plataforma bancaria core completa desde cero. Establecí protocolos rigurosos de Code Review y documentación técnica que redujeron los tiempos de desarrollo en un 30%. Enfocado en Accesibilidad (WCAG) y patrones de componentes reutilizables.",
+        "technologies": ["React", "Redux", "TypeScript", "Cypress", "Agile/SCRUM"],
+        "sector": "Fintech",
+        "client": "Banco Hipotecario",
+        "location": "Argentina",
+        "context": "Desarrollo de proyecto greenfield"
+      }
+    ]
   },
   "blog": {
     "title": "Blog",
@@ -30,9 +62,46 @@
       "cancel": "Cancelar"
     }
   },
+  "profile": {
+    "title": "Perfil",
+    "subtitle": "Ingeniero Frontend Senior con más de 5 años de experiencia",
+    "about": {
+      "title": "Acerca de",
+      "description": "Ingeniero Frontend Senior con más de 5 años de experiencia especializándome en el ecosistema React. Formación en Psicología Cognitiva, brindando una ventaja única en la construcción de UX/UI intuitivas y liderando equipos de alto rendimiento. Trayectoria comprobada en los sectores Fintech y Healthcare, entregando arquitecturas escalables para clientes globales."
+    },
+    "employment": {
+      "title": "Historial Laboral",
+      "current": "ACTUAL",
+      "position": "Ingeniero de Software Senior",
+      "company": "Globant",
+      "period": "Junio 2021 - Presente",
+      "description": "Liderando desarrollo frontend para clientes importantes en los sectores Fintech y Healthcare. Especializándome en el ecosistema React, arquitecturas escalables y aplicaciones de alto rendimiento."
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "core": "Técnicas",
+      "tools": "Herramientas",
+      "soft": "Profesionales"
+    },
+    "languages": {
+      "title": "Idiomas",
+      "spanish": "Español",
+      "english": "Inglés",
+      "native": "Nativo",
+      "advanced": "Avanzado"
+    }
+  },
   "common": {
     "viewProject": "Ver Proyecto",
     "readMore": "Leer más",
-    "backHome": "Volver al Inicio"
+    "backHome": "Volver al Inicio",
+    "location": "Ubicación",
+    "context": "Contexto",
+    "technologies": "Tecnologías",
+    "sector": "Sector",
+    "client": "Cliente"
   }
 }

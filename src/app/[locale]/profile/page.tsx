@@ -1,9 +1,14 @@
+'use client';
+
 import Navigation from '../components/Navigation';
 import Dither from '../components/Dither';
 import { ditherConfig } from '../config/dither';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function Profile() {
+  const t = useTranslations();
+
   return (
     <div className="min-h-screen bg-black text-white relative">
       {/* Fondo animado con Dither */}
@@ -12,9 +17,9 @@ export default function Profile() {
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Profile</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">{t('profile.title')}</h1>
           <p className="text-xl text-gray-400">
-            Senior Frontend Engineer with 5+ years of experience
+            {t('profile.subtitle')}
           </p>
         </div>
 
@@ -26,31 +31,27 @@ export default function Profile() {
           <div className="lg:col-span-2 space-y-10 md:space-y-12">
             {/* About Section */}
             <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 shadow-2xl">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('profile.about.title')}</h2>
               <p className="text-gray-300 leading-relaxed text-lg md:text-xl">
-                Senior Frontend Engineer with 5+ years of experience specializing in the React ecosystem. 
-                Background in Cognitive Psychology, providing a unique edge in building intuitive UX/UI and 
-                leading high-performance teams. Proven track record in the Fintech and Healthcare sectors, 
-                delivering scalable architectures for global clients.
+                {t('profile.about.description')}
               </p>
             </section>
 
             {/* Employment History */}
             <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 shadow-2xl">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">Employment History</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">{t('profile.employment.title')}</h2>
               
               <div className="space-y-6">
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-2xl md:text-3xl font-semibold">Senior Software Engineer</h3>
+                    <h3 className="text-2xl md:text-3xl font-semibold">{t('profile.employment.position')}</h3>
                     <span className="px-3 py-1.5 bg-green-600 text-white text-sm md:text-base font-medium rounded">
-                      PRESENT
+                      {t('profile.employment.current')}
                     </span>
                   </div>
-                  <p className="text-gray-400 mb-4 text-lg md:text-xl">Globant • June 2021 - Present</p>
+                  <p className="text-gray-400 mb-4 text-lg md:text-xl">{t('profile.employment.company')} • {t('profile.employment.period')}</p>
                   <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-                    Leading frontend development for major clients in Fintech and Healthcare sectors. 
-                    Specializing in React ecosystem, scalable architectures, and high-performance applications.
+                    {t('profile.employment.description')}
                   </p>
                 </div>
               </div>
@@ -58,17 +59,17 @@ export default function Profile() {
 
             {/* Education */}
             <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 shadow-2xl">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">Education</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">{t('education.title')}</h2>
               
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <h3 className="text-2xl md:text-3xl font-semibold">Coding Bootcamp</h3>
+                  <h3 className="text-2xl md:text-3xl font-semibold">{t('education.title')}</h3>
                   <span className="px-3 py-1.5 bg-red-600 text-white text-sm md:text-base font-bold rounded">
                     P5
                   </span>
                 </div>
-                <p className="text-gray-400 mb-2 text-lg md:text-xl">Plataforma 5</p>
-                <p className="text-base md:text-lg text-gray-500 mb-6">January - April 2021</p>
+                <p className="text-gray-400 mb-2 text-lg md:text-xl">{t('education.institution')}</p>
+                <p className="text-base md:text-lg text-gray-500 mb-6">{t('education.period')}</p>
                 <div className="flex flex-wrap gap-3">
                   <span className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-full text-base md:text-lg text-gray-300">
                     React
@@ -95,7 +96,7 @@ export default function Profile() {
                 <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gray-700">
                   <Image
                     src="/profile.png"
-                    alt="Lucas Diaz Cano"
+                    alt={t('hero.altImage')}
                     fill
                     className="object-cover"
                     priority
@@ -106,7 +107,7 @@ export default function Profile() {
 
             {/* Contact Info */}
             <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 shadow-2xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Contact</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('profile.contact.title')}</h2>
               <div className="space-y-4 text-base md:text-lg">
                 <div className="flex items-center gap-3 text-gray-300">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,10 +143,10 @@ export default function Profile() {
 
             {/* Skills */}
             <section className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 shadow-2xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Skills</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('profile.skills.title')}</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-base md:text-lg font-semibold text-gray-400 mb-3">Technical</h3>
+                  <h3 className="text-base md:text-lg font-semibold text-gray-400 mb-3">{t('profile.skills.core')}</h3>
                   <div className="flex flex-wrap gap-3">
                     <span className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-full text-base md:text-lg text-gray-300">
                       JavaScript
@@ -165,7 +166,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-base md:text-lg font-semibold text-gray-400 mb-3">Professional</h3>
+                  <h3 className="text-base md:text-lg font-semibold text-gray-400 mb-3">{t('profile.skills.soft')}</h3>
                   <div className="flex flex-wrap gap-3">
                     <span className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-full text-base md:text-lg text-gray-300">
                       Agile/SCRUM

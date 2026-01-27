@@ -7,37 +7,9 @@ import { useTranslations } from 'next-intl';
 
 export default function Projects() {
   const t = useTranslations();
-
-  const projects = [
-  {
-    title: 'Banco BBVA - Mobile & Web Renewal',
-    description: 'Led the architectural renovation of BBVA\'s mobile and web platforms using TypeScript and Micro-frontends (Open Cells). Engineered a high-performance modular system to modernize legacy flows, significantly improving developer velocity and cross-platform consistency.',
-    technologies: ['React', 'TypeScript', 'Open Cells', 'Micro-frontends', 'Fintech'],
-    sector: 'Fintech',
-    client: 'Banco BBVA',
-    location: 'Argentina',
-    context: 'Fintech digital transformation at scale',
-  },
-  {
-    title: 'Johnson & Johnson - Data Visualization',
-    description: 'Developed a mission-critical analytics platform for global teams (USA & Europe). Built complex, real-time dashboards with **Recharts** and **Redux**, ensuring 100% data integrity through strict **TypeScript** typing and **Unit Testing (Jest)**.',
-    technologies: ['React', 'TypeScript', 'Redux', 'Recharts', 'Jest', 'Healthcare'],
-    sector: 'Healthcare & Analytics',
-    client: 'Johnson & Johnson',
-    location: 'USA',
-    context: 'International remote team (USA & Europe)',
-    englishCommunication: true,
-  },
-  {
-    title: 'Banco Hipotecario - Core Banking',
-    description: 'Architected and launched a comprehensive core banking platform from scratch. Established rigorous **Code Review protocols** and technical documentation that reduced development lead times by 30%. Focused on **Accessibility (WCAG)** and reusable component patterns.',
-    technologies: ['React', 'Redux', 'TypeScript', 'Cypress', 'Agile/SCRUM'],
-    sector: 'Fintech',
-    client: 'Banco Hipotecario',
-    location: 'Argentina',
-    context: 'Greenfield project development',
-  },
-];
+  
+  // Obtener proyectos desde las traducciones
+  const projectsData = t.raw('projects.list');
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -58,7 +30,7 @@ export default function Projects() {
 
         {/* Projects List */}
         <div className="space-y-10 md:space-y-12">
-          {projects.map((project, index) => (
+          {projectsData.map((project: any, index: number) => (
             <div
               key={index}
               className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-10 md:p-12 hover:border-white/20 transition-colors shadow-2xl"
@@ -78,9 +50,9 @@ export default function Projects() {
                   {project.englishCommunication && (
                     <div className="flex items-center gap-3 mt-4">
                       <span className="px-5 py-2.5 text-white text-base md:text-lg font-bold rounded-full border-2 border-blue-400 shadow-lg">
-                        🇺🇸 ENGLISH COMMUNICATION
+                        🇺🇸 {t('projects.englishCommunication')}
                       </span>
-                      <span className="text-gray-400 text-base md:text-lg">• All team communication in English</span>
+                      <span className="text-gray-400 text-base md:text-lg">• {t('projects.allTeamEnglish')}</span>
                     </div>
                   )}
                 </div>
@@ -94,7 +66,7 @@ export default function Projects() {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                {project.technologies.map((tech, techIndex) => (
+                {project.technologies.map((tech: string, techIndex: number) => (
                   <span
                     key={techIndex}
                     className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-full text-base md:text-lg text-gray-300"
