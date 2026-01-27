@@ -1,35 +1,67 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import Navigation from '../components/Navigation';
 import Dither from '../components/Dither';
 import BlogCard from '../components/BlogCard';
 import BlogForm from '../components/BlogForm';
 import { ditherConfig } from '../config/dither';
-import { useTranslations } from 'next-intl';
+import { getPosts } from '../actions/blog';
 
 export interface BlogEntry {
-  id: string;
+  id: number;
   title: string;
   description: string;
   image: string;
-  date: string;
+  createdAt: Date | null;
+}
+
+function BlogHeader() {
+  const t = useTranslations('blog');
+  const [showForm, setShowForm] = useState(false);
+
+  return (
+    <>
+      <div className="mb-12">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">{t('title')}</h1>
+        <p className="text-xl text-gray-400 mb-8">
+          {t('description')}
+        </p>
+        
+        {/* Botón para mostrar/ocultar formulario */}
+        <button
+          onClick={() => setShowForm(!showForm)}
+          className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+        >
+          {showForm ? '✕ Cancelar' : '✍️ Nueva Entrada'}
+        </button>
+      </div>
+
+      {/* Formulario (condicional) */}
+      {showForm && (
+        <div className="mb-12">
+          <BlogForm 
+            onCancel={() => setShowForm(false)}
+            onSuccess={() => setShowForm(false)}
+          />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default function BlogPage() {
-  const t = useTranslations('blog');
-  const [entries, setEntries] = useState<BlogEntry[]>([]);
-  const [showForm, setShowForm] = useState(false);
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleAddEntry = (entry: Omit<BlogEntry, 'id' | 'date'>) => {
-    const newEntry: BlogEntry = {
-      ...entry,
-      id: Date.now().toString(),
-      date: new Date().toISOString(),
-    };
-    setEntries([newEntry, ...entries]);
-    setShowForm(false);
-  };
+  // Cargar posts al montar
+  useEffect(() => {
+    getPosts().then((data) => {
+      setPosts(data);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -42,34 +74,18 @@ export default function BlogPage() {
         <div className="backdrop-blur-md bg-black/40 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
           
           {/* Header */}
-          <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">{t('title')}</h1>
-            <p className="text-xl text-gray-400 mb-8">
-              {t('description')}
-            </p>
-            
-            {/* Botón para mostrar/ocultar formulario */}
-            <button
-              onClick={() => setShowForm(!showForm)}
-              className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm"
-            >
-              {showForm ? '✕ Cancelar' : '✍️ Nueva Entrada'}
-            </button>
-          </div>
+          <BlogHeader />
 
           {/* Navigation */}
           <Navigation />
 
-          {/* Formulario (condicional) */}
-          {showForm && (
-            <div className="mb-12">
-              <BlogForm onSubmit={handleAddEntry} onCancel={() => setShowForm(false)} />
-            </div>
-          )}
-
           {/* Lista de entradas */}
           <div className="space-y-8">
-            {entries.length === 0 ? (
+            {loading ? (
+              <div className="text-center py-20">
+                <p className="text-xl text-gray-400">Cargando...</p>
+              </div>
+            ) : posts.length === 0 ? (
               <div className="text-center py-20">
                 <div className="text-6xl mb-4">📝</div>
                 <p className="text-xl text-gray-400">
@@ -77,8 +93,15 @@ export default function BlogPage() {
                 </p>
               </div>
             ) : (
-              entries.map((entry) => (
-                <BlogCard key={entry.id} {...entry} />
+              posts.map((post) => (
+                <BlogCard 
+                  key={post.id}
+                  id={post.id}
+                  title={post.title}
+                  description={post.description}
+                  image={post.image}
+                  date={post.createdAt?.toISOString() || new Date().toISOString()}
+                />
               ))
             )}
           </div>
