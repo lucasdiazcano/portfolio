@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
 
-import { useRef, useEffect, forwardRef } from 'react';
+import { useRef, useEffect, forwardRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
@@ -283,7 +283,7 @@ export default function Dither({
   waveSpeed = 0.05,
   waveFrequency = 3,
   waveAmplitude = 0.3,
-  waveColor = [1, 0.5, 0.5],
+  waveColor: propWaveColor,
   colorNum = 4,
   pixelSize = 2,
   disableAnimation = false,
@@ -300,6 +300,31 @@ export default function Dither({
   enableMouseInteraction?: boolean;
   mouseRadius?: number;
 }) {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    // Check initial theme
+    const checkTheme = () => {
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      setIsDark(isDarkMode);
+    };
+    
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Light mode: cyan/blue and white [0.5, 0.9, 1.0]
+  // Dark mode: pinkish red [1, 0.5, 0.5]
+  const waveColor = propWaveColor || (isDark ? [1, 0.5, 0.5] : [0.5, 0.9, 1.0]);
+
   return (
     <Canvas
       className="dither-container"

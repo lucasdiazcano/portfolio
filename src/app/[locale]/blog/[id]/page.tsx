@@ -50,10 +50,10 @@ export default function BlogPostPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <Dither {...ditherConfig} />
         <div className="relative z-10">
-          <p className="text-xl text-gray-400">Cargando...</p>
+          <p className="text-xl text-muted-foreground">Cargando...</p>
         </div>
       </div>
     );
@@ -61,13 +61,13 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <Dither {...ditherConfig} />
         <div className="relative z-10 text-center">
           <h1 className="text-4xl font-bold mb-4">Post no encontrado</h1>
           <button
             onClick={() => router.push('/blog')}
-            className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all"
+            className="px-6 py-3 bg-card/40 hover:bg-card/60 border border-border rounded-lg font-semibold transition-all"
           >
             ← Volver al blog
           </button>
@@ -87,7 +87,7 @@ export default function BlogPostPage() {
     : 'Fecha desconocida';
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="min-h-screen bg-background text-foreground relative">
       {/* Fondo animado */}
       <Dither {...ditherConfig} />
       
@@ -95,7 +95,7 @@ export default function BlogPostPage() {
         {/* Botón volver */}
         <button
           onClick={() => router.push('/blog')}
-          className="mb-8 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all backdrop-blur-sm inline-flex items-center gap-2"
+          className="mb-8 px-4 py-2 bg-card/40 hover:bg-card/60 border border-border rounded-lg font-semibold transition-all backdrop-blur-sm inline-flex items-center gap-2"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
@@ -104,7 +104,7 @@ export default function BlogPostPage() {
         </button>
 
         {/* Contenedor principal */}
-        <article className="backdrop-blur-md bg-black/40 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+        <article className="backdrop-blur-md bg-card/40 rounded-3xl overflow-hidden border border-border shadow-2xl">
           {/* Imagen destacada */}
           <div className="relative h-96 w-full">
             <Image
@@ -121,7 +121,7 @@ export default function BlogPostPage() {
           {/* Contenido */}
           <div className="p-8 md:p-12">
             {/* Fecha */}
-            <time className="text-sm text-gray-400 mb-4 block">
+            <time className="text-sm text-muted-foreground/80 mb-4 block">
               {formattedDate}
             </time>
 
@@ -132,13 +132,13 @@ export default function BlogPostPage() {
 
             {/* Descripción */}
             <div className="prose prose-invert prose-lg max-w-none">
-              <p className="text-lg text-gray-300 leading-relaxed whitespace-pre-wrap">
+              <p className="text-lg text-foreground leading-relaxed whitespace-pre-wrap">
                 {post.description}
               </p>
             </div>
 
             {/* Botones de admin */}
-            <div className="mt-12 pt-8 border-t border-white/10 flex gap-4">
+            <div className="mt-12 pt-8 border-t border-border flex gap-4">
               <button
                 onClick={handleDelete}
                 disabled={deleting}

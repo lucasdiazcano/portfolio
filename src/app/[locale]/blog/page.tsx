@@ -25,14 +25,14 @@ function BlogHeader() {
     <>
       <div className="mb-12">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">{t('title')}</h1>
-        <p className="text-xl text-gray-400 mb-8">
+        <p className="text-xl text-muted-foreground mb-8">
           {t('description')}
         </p>
         
         {/* Botón para mostrar/ocultar formulario */}
         <button
           onClick={() => setShowForm(!showForm)}
-          className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+          className="px-6 py-3 bg-card/40 hover:bg-card/60 border border-border rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm"
         >
           {showForm ? '✕ Cancelar' : '✍️ Nueva Entrada'}
         </button>
@@ -64,14 +64,14 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="min-h-screen bg-background text-foreground relative">
       {/* Fondo animado con Dither */}
       <Dither {...ditherConfig} />
       
       {/* Contenido principal */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-20">
         {/* Container con efecto glassmorphism */}
-        <div className="backdrop-blur-md bg-black/40 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+        <div className="backdrop-blur-md bg-card/40 rounded-3xl p-8 md:p-12 border border-border shadow-2xl">
           
           {/* Header */}
           <BlogHeader />
@@ -83,12 +83,12 @@ export default function BlogPage() {
           <div className="space-y-8">
             {loading ? (
               <div className="text-center py-20">
-                <p className="text-xl text-gray-400">Cargando...</p>
+                <p className="text-xl text-muted-foreground">Cargando...</p>
               </div>
             ) : posts.length === 0 ? (
               <div className="text-center py-20">
                 <div className="text-6xl mb-4">📝</div>
-                <p className="text-xl text-gray-400">
+                <p className="text-xl text-muted-foreground">
                   No hay entradas aún. ¡Crea la primera!
                 </p>
               </div>

@@ -21,17 +21,17 @@ export default function ProjectCard({
   specialBadge
 }: ProjectCardProps) {
   return (
-    <div className="backdrop-blur-md bg-black/40 border border-white/10 rounded-lg p-8 md:p-10 hover:border-white/20 transition-colors shadow-2xl">
+    <div className="backdrop-blur-md bg-card/40 border border-border rounded-lg p-8 md:p-10 hover:border-primary/50 transition-colors shadow-2xl">
       <div className="flex items-center gap-3 mb-3">
         <h3 className="text-2xl md:text-3xl font-bold">{title}</h3>
         {specialBadge && (
-          <span className="px-3 py-1.5 bg-red-600 text-white text-sm md:text-base font-bold rounded">
+          <span className="px-3 py-1.5 bg-destructive text-destructive-foreground text-sm md:text-base font-bold rounded">
             {specialBadge}
           </span>
         )}
       </div>
       
-      <p className="text-gray-500 text-sm md:text-base mb-3">{location}</p>
+      <p className="text-muted-foreground/80 text-sm md:text-base mb-3">{location}</p>
       
       {highlightBadge && (
         <div className="mb-4">
@@ -41,7 +41,7 @@ export default function ProjectCard({
         </div>
       )}
       
-      <p className="text-gray-400 mb-6 text-base md:text-lg leading-relaxed">
+      <p className="text-foreground mb-6 text-base md:text-lg leading-relaxed">
         {description}
       </p>
       

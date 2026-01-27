@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import "../globals.css";
 import GradualBlur from "@/components/GradualBlur";
 import NavigationProgress from "./components/NavigationProgress";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,11 +47,12 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+          <ThemeSwitcher />
           <NavigationProgress />
           {children}
           <GradualBlur 

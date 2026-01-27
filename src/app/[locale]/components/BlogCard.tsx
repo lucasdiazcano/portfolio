@@ -43,7 +43,7 @@ export default function BlogCard({ id, title, description, image, date }: BlogCa
   };
 
   return (
-    <article className="backdrop-blur-md bg-black/40 border border-white/10 rounded-xl overflow-hidden hover:border-white/20 transition-all duration-300 shadow-2xl group relative">
+    <article className="backdrop-blur-md bg-card/40 border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 shadow-2xl group relative">
       <Link href={`/blog/${id}`} className="block">
         <div className="grid md:grid-cols-3 gap-6">
           {/* Imagen */}
@@ -60,15 +60,15 @@ export default function BlogCard({ id, title, description, image, date }: BlogCa
 
           {/* Contenido */}
           <div className="p-8 md:col-span-2 flex flex-col justify-center">
-            <time className="text-sm text-gray-500 mb-3">{formattedDate}</time>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-gray-300 transition-colors">
+            <time className="text-sm text-muted-foreground/80 mb-3">{formattedDate}</time>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-muted-foreground transition-colors">
               {title}
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed line-clamp-3">
+            <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3">
               {description}
             </p>
             
-            <div className="mt-4 text-white/60 group-hover:text-white transition-colors inline-flex items-center gap-2">
+            <div className="mt-4 text-muted-foreground group-hover:text-foreground transition-colors inline-flex items-center gap-2">
               Leer más 
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

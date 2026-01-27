@@ -41,11 +41,11 @@ export default function Navigation() {
               ${
                 item.isPrimary
                   ? isActive
-                    ? 'bg-white text-black border-white'
-                    : 'bg-white text-black border-white hover:bg-gray-100'
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-primary text-primary-foreground border-primary hover:bg-primary/90'
                   : isActive
-                  ? 'bg-gray-800 text-white border-gray-600'
-                  : 'bg-transparent text-gray-400 border-gray-700 hover:border-gray-600 hover:text-gray-300'
+                  ? 'bg-secondary text-secondary-foreground border-border'
+                  : 'bg-transparent text-muted-foreground border-border hover:border-primary/50 hover:text-foreground'
               }
             `}
           >
@@ -58,7 +58,7 @@ export default function Navigation() {
         href="https://github.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="px-6 py-3 rounded-lg border-2 border-white bg-white text-black font-medium hover:bg-gray-100 transition-all"
+        className="px-6 py-3 rounded-lg border-2 border-primary bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
       >
         <span className="mr-2">🐙</span>
         GitHub

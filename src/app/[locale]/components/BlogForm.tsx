@@ -89,7 +89,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
   };
 
   return (
-    <form action={formAction} className="backdrop-blur-md bg-black/40 border border-white/10 rounded-xl p-8 shadow-2xl">
+    <form action={formAction} className="backdrop-blur-md bg-card/40 border border-border rounded-xl p-8 shadow-2xl">
       <h2 className="text-2xl font-bold mb-6">Nueva Entrada de Blog</h2>
       
       {/* Mensajes de error */}
@@ -116,7 +116,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
       <div className="space-y-6">
         {/* Título */}
         <div>
-          <label htmlFor="title" className="block text-sm font-semibold mb-2 text-gray-300">
+          <label htmlFor="title" className="block text-sm font-semibold mb-2 text-foreground">
             {t('title')}
           </label>
           <input
@@ -128,13 +128,13 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
             placeholder="Escribe un título impactante..."
             required
             disabled={isPending}
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent placeholder-gray-500 text-white backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-muted-foreground text-foreground backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           />
         </div>
 
         {/* Subir imagen desde PC */}
         <div>
-          <label htmlFor="imageFile" className="block text-sm font-semibold mb-2 text-gray-300">
+          <label htmlFor="imageFile" className="block text-sm font-semibold mb-2 text-foreground">
             Subir Imagen desde tu PC
           </label>
           <div className="space-y-3">
@@ -144,10 +144,10 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
               accept="image/*"
               onChange={handleFileChange}
               disabled={isPending || uploading}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent text-white backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-gray-200 file:cursor-pointer"
+              className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-foreground backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-primary-foreground hover:file:bg-primary/90 file:cursor-pointer"
             />
             {uploading && (
-              <p className="text-sm text-blue-400">Subiendo imagen...</p>
+              <p className="text-sm text-primary">Subiendo imagen...</p>
             )}
           </div>
 
@@ -156,7 +156,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
 
           {/* Preview de la imagen */}
           {(previewUrl || formData.image) && (
-            <div className="mt-3 relative h-48 rounded-lg overflow-hidden border border-white/10">
+            <div className="mt-3 relative h-48 rounded-lg overflow-hidden border border-border">
               <img
                 src={previewUrl || formData.image}
                 alt="Preview"
@@ -181,7 +181,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
 
         {/* Descripción */}
         <div>
-          <label htmlFor="description" className="block text-sm font-semibold mb-2 text-gray-300">
+          <label htmlFor="description" className="block text-sm font-semibold mb-2 text-foreground">
             {t('content')}
           </label>
           <textarea
@@ -193,7 +193,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
             required
             rows={6}
             disabled={isPending}
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent placeholder-gray-500 text-white backdrop-blur-sm transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-muted-foreground text-foreground backdrop-blur-sm transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -202,7 +202,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
           <button
             type="submit"
             disabled={isPending}
-            className="flex-1 px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isPending ? 'Creando...' : t('submit')}
           </button>
@@ -210,7 +210,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
             type="button"
             onClick={onCancel}
             disabled={isPending}
-            className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-3 bg-card/40 hover:bg-card/60 border border-border rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {t('cancel')}
           </button>
