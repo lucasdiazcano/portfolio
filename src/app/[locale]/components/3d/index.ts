@@ -8,6 +8,9 @@ export { default as TerminalContent } from './ui/TerminalContent';
 export { default as PipBoyTerminal } from './ui/PipBoyTerminal';
 export { default as Scene3DContent } from './ui/Scene3DContent';
 
+// Loader
+export { PipBoyLoader, PipBoyLoaderOverlay, Title3D, useLoadingComplete } from './ui/PipBoyLoader';
+
 // Controles UI
 export {
   TimeControl,

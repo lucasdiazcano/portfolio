@@ -1,53 +1,271 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lucas Diaz Cano - Portfolio 3D Pip-Boy
 
-## Getting Started
+Portfolio personal con interfaz diegética estilo Pip-Boy de Fallout, construido con Next.js 15, React Three Fiber y TypeScript.
 
-First, run the development server:
+## 🚀 Getting Started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-hola. JAJAJA
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Abrir [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🏗️ Arquitectura del Proyecto
 
-To learn more about Next.js, take a look at the following resources:
+### Stack Principal
+- **Next.js 15** - App Router con `[locale]` para i18n
+- **React 19** - Con React Compiler
+- **React Three Fiber 9.x** - Renderizado 3D declarativo
+- **@react-three/drei** - Helpers y componentes 3D
+- **@react-three/postprocessing** - Efectos visuales (Bloom, Vignette)
+- **Zustand** - Estado global para navegación del Pip-Boy
+- **GSAP** - Animaciones (typewriter, transiciones)
+- **Three.js** - Motor 3D subyacente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Estructura de Componentes 3D
 
-## Deploy on Vercel
+```
+src/app/[locale]/components/3d/
+├── index.ts              # Exportaciones centralizadas
+├── types.ts              # Interfaces y constantes (PIPBOY_COLORS)
+├── store.ts              # Zustand store para navegación
+├── config/
+│   ├── screenConfig.ts   # Dimensiones de pantalla
+│   └── timePresets.ts    # Presets día/noche (DAWN, DAY, SUNSET, NIGHT)
+├── models/
+│   └── PipBoyDevice.tsx  # Modelo 3D del dispositivo
+├── ui/
+│   ├── PipBoyTerminal.tsx    # Orquestador principal
+│   ├── TerminalContent.tsx   # Contenido de la pantalla
+│   ├── Scene3DContent.tsx    # Escena con luces y efectos
+│   ├── Controls.tsx          # Botones UI (tiempo, back)
+│   ├── PipBoyLoader.tsx      # Loader con useProgress
+│   ├── LayoutDebugPanel.tsx  # Panel debug (press D)
+│   └── views/
+│       ├── UIComponents.tsx   # Componentes UI reutilizables
+│       ├── StatsView.tsx      # Tab STATS - Perfil
+│       ├── ProjectListView.tsx # Tab PROJECTS - Lista
+│       ├── ProjectDetailView.tsx # Detalle de proyecto
+│       ├── SkillsView.tsx     # Tab SKILLS
+│       └── DataView.tsx       # Tab DATA - Contacto
+├── effects/
+│   ├── DynamicLighting.tsx   # Iluminación según hora
+│   ├── Rain.tsx              # Partículas de lluvia
+│   └── ScreenDroplets.tsx    # Gotas en la pantalla
+└── hooks/
+    ├── useTransitions.ts     # Hooks de transición
+    └── usePortfolioData.ts   # Carga datos al store
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎮 Componentes Principales
 
-Arquitectura e Ingeniería de Interfaces Diegéticas: Implementación de Menús 3D Estilo Pip-Boy en Ecosistemas Next.js
-La integración de interfaces de usuario diegéticas en el desarrollo web contemporáneo representa una convergencia entre la ingeniería de software de alto rendimiento y el diseño de experiencias inmersivas. Una interfaz diegética, concepto popularizado en el diseño de videojuegos y personificado por el dispositivo Pip-Boy de la franquicia Fallout, se define como un elemento funcional que existe físicamente dentro del mundo narrativo y espacial de la aplicación.1 A diferencia de las interfaces de usuario tradicionales (HUD) que se superponen bidimensionalmente sobre el contenido, el menú diegético se somete a las leyes de la perspectiva, la iluminación y los materiales del entorno tridimensional.2 En el contexto de un portfolio profesional desarrollado con Next.js, esta técnica no solo demuestra competencia técnica en gráficos computacionales, sino que también transforma la navegación convencional en una experiencia exploratoria.5
-La arquitectura de una solución de este tipo requiere un orquestador que medie entre la estructura declarativa de React y el imperativo motor de WebGL. React Three Fiber (R3F) cumple esta función, permitiendo que los objetos de Three.js se gestionen como componentes de React, aprovechando el ciclo de vida, los ganchos (hooks) y el sistema de estados del framework.1 Para el año 2026, la implementación de estas interfaces ha madurado gracias a la estabilización de WebGPU y las optimizaciones de renderizado en el servidor proporcionadas por Next.js 15, lo que permite ejecutar escenas complejas con una latencia mínima.10
-Fundamentos del Stack Tecnológico y Sincronización de Dependencias
-La construcción de un menú diegético comienza con la selección rigurosa de dependencias. La compatibilidad entre las versiones de los paquetes es el factor crítico de éxito más relevante, especialmente ante la transición global hacia React 19 y Next.js 15.1 La arquitectura debe diseñarse para minimizar los conflictos en el reconciliador de React y maximizar el aprovechamiento de la GPU.1
-Matriz de Dependencias y Compatibilidad
-La siguiente tabla detalla los componentes esenciales del ecosistema necesarios para una implementación técnica robusta. Es imperativo respetar la paridad de versiones entre @react-three/fiber y la versión de React instalada para asegurar la estabilidad del renderizador.1
+### `PipBoyDevice.tsx`
+Modelo 3D del dispositivo construido con primitivas de Three.js:
+- **Cuerpo principal** - Box con textura `texture-pipboy.png`
+- **Biseles** - Superior e inferior
+- **Paneles laterales** - Con perillas y ventilación
+- **Correas** - Material tipo cuero
+- **Texto 3D** - "Lucas Diaz Cano" con Text3D (brilla verde de noche)
+- **LED indicador** - Cambia color al hover
 
-Paquete
-Versión Recomendada (2025-2026)
-Función Arquitectónica
-next
-15.x o superior
+```tsx
+<PipBoyDevice hovered={hovered} timeIndex={timeIndex}>
+  {/* children = pantalla con RenderTexture */}
+</PipBoyDevice>
+```
+
+### `PipBoyTerminal.tsx`
+Orquestador que une el dispositivo con la pantalla:
+- Usa `RenderTexture` para renderizar UI dentro de un mesh 3D
+- `rectAreaLight` para que la pantalla ilumine el entorno
+- Animación de flotado con `useFrame`
+- Maneja hover state
+
+### `TerminalContent.tsx`
+Contenido que se renderiza dentro de la pantalla:
+- **PowerOnOverlay** - Efecto de encendido con flicker (GSAP)
+- **TabHeader** - Tabs navegables (STATS, PROJECTS, SKILLS, DATA)
+- **DynamicContent** - Renderiza la vista activa con transiciones
+
+### `Scene3DContent.tsx`
+Escena 3D completa:
+- `DynamicLighting` - Luces que cambian según hora
+- `Environment` - HDR de drei para reflejos
+- `ContactShadows` - Sombra debajo del Pip-Boy
+- `Float` - Animación de flotado suave
+- `OrbitControls` - Rotación con mouse
+
+---
+
+## 🎨 Sistema de Navegación (Zustand Store)
+
+```tsx
+// store.ts
+interface PipBoyStore {
+  // Tabs
+  currentTabIndex: number;
+  tabs: ['STATS', 'PROJECTS', 'SKILLS', 'DATA'];
+  
+  // Navegación
+  selectedIndex: number;      // Ítem seleccionado en lista
+  isViewingDetail: boolean;   // Vista de detalle abierta
+  
+  // Datos del portfolio
+  projects: Project[];
+  skills: Skill[];
+  profile: Profile;
+  
+  // Acciones
+  nextTab(): void;
+  prevTab(): void;
+  selectItem(index: number): void;
+  openDetail(): void;
+  closeDetail(): void;
+}
+```
+
+**Controles de teclado:**
+- `Q` / `E` - Cambiar tab
+- `↑` / `↓` - Navegar lista
+- `Enter` - Abrir detalle
+- `Escape` - Cerrar detalle
+- `D` - Toggle panel debug
+
+---
+
+## 🌅 Sistema de Tiempo (Día/Noche)
+
+```tsx
+// timePresets.ts
+const TIME_PRESETS = [
+  { name: 'DAWN', preset: 'dawn', ... },
+  { name: 'DAY', preset: 'warehouse', ... },
+  { name: 'SUNSET', preset: 'sunset', ... },
+  { name: 'NIGHT', preset: 'night', ... },
+];
+```
+
+Afecta:
+- Intensidad de luces
+- Environment HDR
+- Color del nombre 3D (verde de noche)
+- Opacidad de sombras
+
+---
+
+## ✨ Efectos Visuales
+
+### Post-processing (Scene3DFullscreen)
+```tsx
+<EffectComposer>
+  <Bloom intensity={0.6} luminanceThreshold={0.3} />
+  <Vignette offset={0.4} darkness={0.5} />
+</EffectComposer>
+```
+
+### Efectos GSAP
+- **TypewriterText** - Texto que aparece letra por letra
+- **PowerOnOverlay** - Boot sequence con flicker
+- **Tab transitions** - Glitch horizontal al cambiar
+
+---
+
+## 🧩 UIComponents Reutilizables
+
+```tsx
+// views/UIComponents.tsx
+<SectionHeader>Title</SectionHeader>
+<DataRow label="KEY" value="value" isSelected />
+<ListItem index={1} title="Item" isSelected />
+<ProgressBar value={85} label="React" />
+<Badge variant="highlight">BADGE</Badge>
+<TypewriterText speed={0.02} delay={0.3}>Texto animado</TypewriterText>
+<NavigationFooter instructions="[↑↓] Navigate" />
+```
+
+### Layout Debug Panel
+Presionar `D` para abrir panel de ajustes en tiempo real:
+- contentTop, contentLeft, contentWidth
+- lineHeight
+- fontSize (title, heading, body, small, micro)
+
+---
+
+## 📊 Datos del Portfolio
+
+Los datos se cargan desde `data/content.ts` y se inyectan al store:
+
+```tsx
+// hooks/usePortfolioData.ts
+export function usePortfolioData() {
+  const setProjects = usePipBoyStore(s => s.setProjects);
+  const setSkills = usePipBoyStore(s => s.setSkills);
+  const setProfile = usePipBoyStore(s => s.setProfile);
+  
+  useEffect(() => {
+    setProjects(portfolioContent.projects);
+    setSkills(portfolioContent.skills);
+    setProfile(portfolioContent.profile);
+  }, []);
+}
+```
+
+---
+
+## 🔧 Configuración Importante
+
+### PIPBOY_COLORS (types.ts)
+```tsx
+export const PIPBOY_COLORS = {
+  screenText: '#33ff66',       // Verde principal
+  screenTextDim: '#1a9944',    // Verde atenuado
+  screenTextMuted: '#0d662b',  // Verde muy oscuro
+  screenAccent: '#00cc44',     // Acentos
+  screenBg: '#001a00',         // Fondo pantalla
+  deviceBody: '#2a2a2a',       // Cuerpo del dispositivo
+  // ...
+};
+```
+
+### SCREEN_CONFIG (config/screenConfig.ts)
+```tsx
+export const SCREEN_CONFIG = {
+  width: 3.5,
+  height: 2.2,
+  resolution: [1024, 640],
+};
+```
+
+---
+
+## 🚢 Deploy
+
+```bash
+npm run build
+```
+
+Configurado para Vercel en `vercel.json`.
+
+---
+
+## 📝 Notas para AI/Desarrollo
+
+1. **RenderTexture** - La UI se renderiza en una textura que se aplica a un plano 3D
+2. **Text3D** - Requiere fuente typeface JSON en `/public/fonts/`
+3. **useFrame** - Hook de R3F para animaciones por frame
+4. **Environment** - Presets de drei: 'dawn', 'warehouse', 'sunset', 'night'
+5. **ContactShadows** - Sombra proyectada, no real (mejor performance)
+6. **Zustand** - Store sin Provider, acceso directo con hooks
+7. **GSAP en R3F** - Usar refs y animar propiedades de Three.js objects
+
+---
 Framework base y optimización de rutas.10
 react
 19.x o superior

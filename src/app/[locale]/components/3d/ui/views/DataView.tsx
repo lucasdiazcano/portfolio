@@ -129,7 +129,7 @@ export default function DataView() {
           color={PIPBOY_COLORS.screenTextMuted}
           anchorX="center"
         >
-          {'<< VAULT-TEC CERTIFIED ENGINEER >>'}
+          {'<< KUKINO ENTERPRISES CERTIFIED ENGINEER >>'}
         </Text>
       </group>
       

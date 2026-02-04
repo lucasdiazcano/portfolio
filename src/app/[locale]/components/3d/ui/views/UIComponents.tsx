@@ -2,8 +2,9 @@
 
 import { Text } from '@react-three/drei';
 import { PIPBOY_COLORS } from '../../types';
-import { ReactNode } from 'react';
+import { ReactNode, useState, useEffect, useRef } from 'react';
 import { useLayoutDebug } from '../LayoutDebugPanel';
+import gsap from 'gsap';
 
 /**
  * Hook para obtener el layout actual (desde debug panel)
@@ -43,6 +44,93 @@ export const LAYOUT = {
     micro: 0.065,
   },
 } as const;
+
+/**
+ * Texto con efecto typewriter usando GSAP
+ * El texto aparece letra por letra
+ */
+export function TypewriterText({
+  children,
+  position = [0, 0, 0] as [number, number, number],
+  fontSize = 0.1,
+  color = PIPBOY_COLORS.screenText,
+  anchorX = 'left' as const,
+  anchorY = 'middle' as const,
+  speed = 0.03, // segundos por caracter
+  delay = 0, // delay inicial
+  maxWidth,
+  showCursor = false,
+  onComplete,
+}: {
+  children: string;
+  position?: [number, number, number];
+  fontSize?: number;
+  color?: string;
+  anchorX?: 'left' | 'center' | 'right';
+  anchorY?: 'top' | 'middle' | 'bottom';
+  speed?: number;
+  delay?: number;
+  maxWidth?: number;
+  showCursor?: boolean;
+  onComplete?: () => void;
+}) {
+  const [displayText, setDisplayText] = useState('');
+  const [showBlinkingCursor, setShowBlinkingCursor] = useState(showCursor);
+  const fullText = children;
+  const progressRef = useRef({ value: 0 });
+  
+  useEffect(() => {
+    // Reset when text changes
+    setDisplayText('');
+    progressRef.current.value = 0;
+    setShowBlinkingCursor(showCursor);
+    
+    const tl = gsap.timeline({
+      delay,
+      onComplete: () => {
+        setShowBlinkingCursor(false);
+        onComplete?.();
+      }
+    });
+    
+    tl.to(progressRef.current, {
+      value: fullText.length,
+      duration: fullText.length * speed,
+      ease: 'none',
+      onUpdate: () => {
+        const chars = Math.floor(progressRef.current.value);
+        setDisplayText(fullText.slice(0, chars));
+      }
+    });
+    
+    return () => {
+      tl.kill();
+    };
+  }, [fullText, speed, delay, onComplete, showCursor]);
+  
+  // Cursor blinking effect
+  const [cursorVisible, setCursorVisible] = useState(true);
+  useEffect(() => {
+    if (!showBlinkingCursor) return;
+    const interval = setInterval(() => {
+      setCursorVisible(v => !v);
+    }, 400);
+    return () => clearInterval(interval);
+  }, [showBlinkingCursor]);
+  
+  return (
+    <Text
+      position={position}
+      fontSize={fontSize}
+      color={color}
+      anchorX={anchorX}
+      anchorY={anchorY}
+      maxWidth={maxWidth}
+    >
+      {displayText}{showBlinkingCursor && cursorVisible ? '█' : showBlinkingCursor ? ' ' : ''}
+    </Text>
+  );
+}
 
 /**
  * Borde decorativo estilo terminal

@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { useTexture } from '@react-three/drei';
+import { useTexture, Text3D, Center } from '@react-three/drei';
 import { PIPBOY_COLORS, PipBoyDeviceProps } from '../types';
 
 /**
@@ -11,6 +11,7 @@ import { PIPBOY_COLORS, PipBoyDeviceProps } from '../types';
 export default function PipBoyDevice({ 
   children, 
   hovered,
+  timeIndex = 1,
   showKnobs = true,
   showVents = true,
   showStraps = true,
@@ -20,8 +21,35 @@ export default function PipBoyDevice({
   // Cargar textura del Pip-Boy
   const pipboyTexture = useTexture('/texture-pipboy.png');
   
+  // Determinar si es de noche (timeIndex 3 = NIGHT)
+  const isNight = timeIndex === 3;
+  
   return (
     <group>
+      {/* Logo en 3D sobre el margen de la pantalla */}
+      <group position={[0, 1.25, 0.12]}>
+        <Center>
+          <Text3D
+            font="/fonts/helvetiker_regular.typeface.json"
+            size={0.1}
+            height={0.025}
+            bevelEnabled
+            bevelSize={0.006}
+            bevelThickness={0.004}
+            bevelSegments={3}
+          >
+            Lucas Diaz Cano 
+            <meshStandardMaterial 
+              color={isNight ? "#33ff66" : "#a8a8a8"}
+              emissive={isNight ? "#33ff66" : "#404040"}
+              emissiveIntensity={isNight ? 0.5 : 0.05}
+              metalness={isNight ? 0.3 : 0.6}
+              roughness={isNight ? 0.2 : 0.4}
+            />
+          </Text3D>
+        </Center>
+      </group>
+      
       {/* Cuerpo principal del dispositivo */}
       <mesh position={[0, 0, -0.15]}>
         <boxGeometry args={[4.2, 2.8, 0.4]} />

@@ -26,6 +26,7 @@ export interface ScreenContentProps {
 export interface PipBoyDeviceProps {
   children: ReactNode;
   hovered: boolean;
+  timeIndex?: number;
   showKnobs?: boolean;
   showVents?: boolean;
   showStraps?: boolean;

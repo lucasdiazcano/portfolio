@@ -58,7 +58,7 @@ export default function PipBoyTerminal({ rainIntensity = 0, timeIndex = 1 }: Pip
       scale={1.5}
       rotation={[0.05, 0, 0]}
     >
-      <PipBoyDevice hovered={hovered}>
+      <PipBoyDevice hovered={hovered} timeIndex={timeIndex}>
         {/* Luz emitida por la pantalla - ilumina el entorno */}
         <rectAreaLight
           ref={screenLightRef}

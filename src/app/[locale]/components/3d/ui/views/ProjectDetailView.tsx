@@ -8,6 +8,7 @@ import {
   LAYOUT,
   Badge,
   TerminalBorder,
+  TypewriterText,
 } from './UIComponents';
 
 /**
@@ -105,16 +106,17 @@ export default function ProjectDetailView() {
           {'◇ DESCRIPTION'}
         </Text>
         
-        <Text
+        <TypewriterText
           position={[LAYOUT.contentLeft, -0.15, 0]}
           fontSize={LAYOUT.fontSize.small}
           color={PIPBOY_COLORS.screenTextDim}
-          anchorX="left"
           maxWidth={3.2}
-          lineHeight={1.4}
+          delay={0.2}
+          speed={0.012}
+          showCursor
         >
           {project.description}
-        </Text>
+        </TypewriterText>
       </group>
       
       {/* Tech Stack */}
@@ -129,15 +131,17 @@ export default function ProjectDetailView() {
           {'◇ TECH STACK'}
         </Text>
         
-        <Text
+        <TypewriterText
           position={[LAYOUT.contentLeft, -0.14, 0]}
           fontSize={LAYOUT.fontSize.small}
           color={PIPBOY_COLORS.screenTextDim}
-          anchorX="left"
           maxWidth={3.2}
+          delay={0.8}
+          speed={0.02}
+          showCursor
         >
           {project.technologies.join('  •  ')}
-        </Text>
+        </TypewriterText>
       </group>
       
       {/* Context si existe */}

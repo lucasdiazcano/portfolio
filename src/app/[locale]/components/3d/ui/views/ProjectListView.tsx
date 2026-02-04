@@ -11,6 +11,7 @@ import {
   ItemCounter,
   LAYOUT,
   TerminalBorder,
+  TypewriterText,
 } from './UIComponents';
 
 /**
@@ -31,14 +32,16 @@ export default function ProjectListView() {
         <SectionHeader position={[0, LAYOUT.contentTop, 0]}>
           Project Inventory
         </SectionHeader>
-        <Text
+        <TypewriterText
           position={[0, 0, 0]}
-          fontSize={0.15}
+          fontSize={0.12}
           color={PIPBOY_COLORS.screenTextMuted}
           anchorX="center"
+          speed={0.04}
+          showCursor
         >
-          {'Loading projects...'}
-        </Text>
+          {'Accessing project database...'}
+        </TypewriterText>
         <NavigationFooter instructions="[Q/E] Change Tab" />
       </group>
     );

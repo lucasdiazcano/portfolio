@@ -12,6 +12,7 @@ import {
   LAYOUT,
   TerminalBorder,
   useLayout,
+  TypewriterText,
 } from './UIComponents';
 
 /**
@@ -120,29 +121,30 @@ export default function StatsView() {
           {'◇ CURRENT EMPLOYMENT'}
         </Text>
         
-        <Text
+        <TypewriterText
           position={[layout.contentLeft + 0.1, -0.18, 0]}
           fontSize={layout.fontSize.small}
           color={PIPBOY_COLORS.screenTextDim}
-          anchorX="left"
+          delay={0.3}
+          speed={0.025}
+          showCursor
         >
           {profile.employment.period}
-        </Text>
+        </TypewriterText>
         
-        <Text
+        <TypewriterText
           position={[layout.contentLeft + 0.1, -0.35, 0]}
           fontSize={layout.fontSize.micro}
           color={PIPBOY_COLORS.screenTextMuted}
-          anchorX="left"
           maxWidth={3.5}
-          lineHeight={1.3}
+          delay={0.8}
+          speed={0.015}
+          showCursor
         >
           {profile.employment.description.slice(0, 120) + '...'}
-        </Text>
+        </TypewriterText>
       </group>
       
-      {/* Footer con navegación */}
-      <NavigationFooter instructions="[↑↓] Select  [Q/E] Switch Tab" />
     </group>
   );
 }
