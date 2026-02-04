@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
+import parse from 'html-react-parser';
 import { getPostById, deletePost } from '../../actions/blog';
 import Navigation from '../../components/Navigation';
 import Dither from '../../components/Dither';
@@ -131,10 +132,8 @@ export default function BlogPostPage() {
             </h1>
 
             {/* Descripción */}
-            <div className="prose prose-invert prose-lg max-w-none">
-              <p className="text-lg text-foreground leading-relaxed whitespace-pre-wrap">
-                {post.description}
-              </p>
+            <div className="prose prose-invert prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-em:text-foreground prose-ul:text-foreground prose-ol:text-foreground">
+              {parse(post.description)}
             </div>
 
             {/* Botones de admin */}

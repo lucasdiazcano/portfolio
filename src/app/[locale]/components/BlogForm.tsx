@@ -3,6 +3,7 @@
 import { useActionState, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createPostFromObject } from '../actions/blog';
+import TextEditor from './TextEditor';
 
 interface BlogFormProps {
   onCancel: () => void;
@@ -181,20 +182,16 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
 
         {/* Descripción */}
         <div>
-          <label htmlFor="description" className="block text-sm font-semibold mb-2 text-foreground">
+          <label className="block text-sm font-semibold mb-2 text-foreground">
             {t('content')}
           </label>
-          <textarea
-            id="description"
-            name="description"
+          <TextEditor
             value={formData.description}
-            onChange={handleChange}
-            placeholder="Describe tu entrada de blog..."
-            required
-            rows={6}
+            onChange={(html) => setFormData({ ...formData, description: html })}
             disabled={isPending}
-            className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-muted-foreground text-foreground backdrop-blur-sm transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+            placeholder="Describe tu entrada de blog..."
           />
+          <input type="hidden" name="description" value={formData.description} />
         </div>
 
         {/* Botones */}

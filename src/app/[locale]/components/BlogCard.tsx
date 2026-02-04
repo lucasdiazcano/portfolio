@@ -24,6 +24,13 @@ export default function BlogCard({ id, title, description, image, date }: BlogCa
     day: 'numeric'
   });
 
+  const stripHtmlAndClamp = (html: string, limit: number = 150): string => {
+    // Eliminar tags HTML
+    const text = html.replace(/<[^>]*>/g, '');
+    // Limitar caracteres
+    return text.length > limit ? text.substring(0, limit) + '...' : text;
+  };
+
   const handleDelete = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -65,7 +72,7 @@ export default function BlogCard({ id, title, description, image, date }: BlogCa
               {title}
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3">
-              {description}
+              {stripHtmlAndClamp(description, 150)}
             </p>
             
             <div className="mt-4 text-muted-foreground group-hover:text-foreground transition-colors inline-flex items-center gap-2">
