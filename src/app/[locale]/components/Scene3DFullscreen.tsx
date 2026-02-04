@@ -2,6 +2,7 @@
 
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useState } from 'react';
+import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
 
 import {
   Scene3DContent,
@@ -62,6 +63,22 @@ export default function Scene3DFullscreen() {
       >
         <Suspense fallback={null}>
           <Scene3DContent timeIndex={timeIndex} rainIntensity={rainIntensity} />
+          
+          {/* Post-processing effects */}
+          <EffectComposer>
+            {/* Bloom - Glow verde estilo Pip-Boy */}
+            <Bloom 
+              intensity={0.8}
+              luminanceThreshold={0.2}
+              luminanceSmoothing={0.9}
+              mipmapBlur
+            />
+            {/* Vignette - Oscurecimiento en esquinas */}
+            <Vignette 
+              offset={0.3}
+              darkness={0.7}
+            />
+          </EffectComposer>
         </Suspense>
       </Canvas>
     </div>

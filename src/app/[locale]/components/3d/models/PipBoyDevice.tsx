@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { useTexture } from '@react-three/drei';
 import { PIPBOY_COLORS, PipBoyDeviceProps } from '../types';
 
 /**
@@ -16,15 +17,19 @@ export default function PipBoyDevice({
   showScrews = true,
   showLED = true,
 }: PipBoyDeviceProps) {
+  // Cargar textura del Pip-Boy
+  const pipboyTexture = useTexture('/texture-pipboy.png');
+  
   return (
     <group>
       {/* Cuerpo principal del dispositivo */}
       <mesh position={[0, 0, -0.15]}>
         <boxGeometry args={[4.2, 2.8, 0.4]} />
         <meshStandardMaterial 
+          map={pipboyTexture}
           color={PIPBOY_COLORS.deviceBody}
-          metalness={0.2}
-          roughness={0.6}
+          metalness={0.1}
+          roughness={0.85}
         />
       </mesh>
 
@@ -32,9 +37,10 @@ export default function PipBoyDevice({
       <mesh position={[0, 1.5, -0.05]}>
         <boxGeometry args={[4.0, 0.15, 0.5]} />
         <meshStandardMaterial 
+          map={pipboyTexture}
           color={PIPBOY_COLORS.deviceAccent} 
-          metalness={0.3} 
-          roughness={0.5} 
+          metalness={0.15} 
+          roughness={0.8} 
         />
       </mesh>
 
@@ -42,9 +48,10 @@ export default function PipBoyDevice({
       <mesh position={[0, -1.5, -0.05]}>
         <boxGeometry args={[4.0, 0.15, 0.5]} />
         <meshStandardMaterial 
+          map={pipboyTexture}
           color={PIPBOY_COLORS.deviceAccent} 
-          metalness={0.3} 
-          roughness={0.5} 
+          metalness={0.15} 
+          roughness={0.8} 
         />
       </mesh>
 
@@ -53,9 +60,10 @@ export default function PipBoyDevice({
         <mesh>
           <boxGeometry args={[0.3, 2.5, 0.5]} />
           <meshStandardMaterial 
+            map={pipboyTexture}
             color={PIPBOY_COLORS.deviceFrame} 
-            metalness={0.2} 
-            roughness={0.5} 
+            metalness={0.1} 
+            roughness={0.85} 
           />
         </mesh>
         
@@ -66,8 +74,8 @@ export default function PipBoyDevice({
               <cylinderGeometry args={[0.12, 0.12, 0.15, 16]} />
               <meshStandardMaterial 
                 color={hovered && i === 1 ? PIPBOY_COLORS.screenText : PIPBOY_COLORS.deviceMetal} 
-                metalness={0.4} 
-                roughness={0.4} 
+                metalness={0.2} 
+                roughness={0.7} 
               />
             </mesh>
           </group>
@@ -79,9 +87,10 @@ export default function PipBoyDevice({
         <mesh>
           <boxGeometry args={[0.3, 2.5, 0.5]} />
           <meshStandardMaterial 
+            map={pipboyTexture}
             color={PIPBOY_COLORS.deviceFrame} 
-            metalness={0.2} 
-            roughness={0.5} 
+            metalness={0.1} 
+            roughness={0.85} 
           />
         </mesh>
         
@@ -99,11 +108,21 @@ export default function PipBoyDevice({
         <>
           <mesh position={[0, 1.7, -0.2]} rotation={[0.2, 0, 0]}>
             <boxGeometry args={[3.5, 0.4, 0.1]} />
-            <meshStandardMaterial color={PIPBOY_COLORS.strapLeather} roughness={0.9} />
+            <meshStandardMaterial 
+              map={pipboyTexture}
+              color={PIPBOY_COLORS.strapLeather} 
+              metalness={0}
+              roughness={0.95} 
+            />
           </mesh>
           <mesh position={[0, -1.7, -0.2]} rotation={[-0.2, 0, 0]}>
             <boxGeometry args={[3.5, 0.4, 0.1]} />
-            <meshStandardMaterial color={PIPBOY_COLORS.strapLeather} roughness={0.9} />
+            <meshStandardMaterial 
+              map={pipboyTexture}
+              color={PIPBOY_COLORS.strapLeather} 
+              metalness={0}
+              roughness={0.95} 
+            />
           </mesh>
         </>
       )}
@@ -116,8 +135,8 @@ export default function PipBoyDevice({
           <cylinderGeometry args={[0.05, 0.05, 0.05, 8]} />
           <meshStandardMaterial 
             color={PIPBOY_COLORS.deviceScrew} 
-            metalness={1} 
-            roughness={0.2} 
+            metalness={0.3} 
+            roughness={0.6} 
           />
         </mesh>
       ))}
@@ -137,8 +156,8 @@ export default function PipBoyDevice({
         <boxGeometry args={[3.7, 2.4, 0.08]} />
         <meshStandardMaterial 
           color="#050505" 
-          metalness={0.5} 
-          roughness={0.5} 
+          metalness={0.1} 
+          roughness={0.9} 
         />
       </mesh>
 
