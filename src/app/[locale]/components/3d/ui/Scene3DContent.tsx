@@ -31,7 +31,7 @@ export default function Scene3DContent({ timeIndex, rainIntensity }: Scene3DCont
       {/* Sistema de lluvia */}
       <Rain intensity={rainIntensity} />
       
-      <PipBoyTerminal rainIntensity={rainIntensity} />
+      <PipBoyTerminal rainIntensity={rainIntensity} timeIndex={timeIndex} />
       
       <OrbitControls 
         enableZoom={true} 

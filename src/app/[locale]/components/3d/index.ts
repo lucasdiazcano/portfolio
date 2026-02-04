@@ -5,6 +5,27 @@
 // Componentes principales
 export { default as PipBoyDevice } from './models/PipBoyDevice';
 export { default as TerminalContent } from './ui/TerminalContent';
+export { default as PipBoyTerminal } from './ui/PipBoyTerminal';
+export { default as Scene3DContent } from './ui/Scene3DContent';
+
+// Controles UI
+export {
+  TimeControl,
+  RainControl,
+  BackButton,
+  Instructions,
+  BackgroundLayers,
+  RainOverlay,
+} from './ui/Controls';
+
+// Efectos
+export * from './effects';
+
+// Hooks
+export * from './hooks';
+
+// Configuración
+export * from './config';
 
 // Tipos
 export * from './types';
