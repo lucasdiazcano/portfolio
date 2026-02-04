@@ -13,12 +13,21 @@ import {
   RainOverlay,
   useDelayedIndex,
   useRainIntensity,
+  usePortfolioData,
+  usePipBoyNavigation,
 } from './3d';
+import LayoutDebugPanel from './3d/ui/LayoutDebugPanel';
 
 /**
  * Página fullscreen del PipBoy con ciclo día/noche y lluvia
  */
 export default function Scene3DFullscreen() {
+  // Cargar datos del portfolio en el store
+  usePortfolioData();
+  
+  // Activar navegación con teclado y mouse
+  usePipBoyNavigation();
+  
   // Estado del tiempo
   const [timeIndex, setTimeIndex] = useState(1); // Empieza en DAY
   const displayIndex = useDelayedIndex(timeIndex);
@@ -40,6 +49,9 @@ export default function Scene3DFullscreen() {
       <TimeControl timeIndex={timeIndex} onTimeChange={setTimeIndex} />
       <RainControl isRaining={isRaining} onToggle={() => setIsRaining(!isRaining)} />
       <Instructions />
+      
+      {/* Panel de debug para ajustar layout - Presiona D para mostrar */}
+      <LayoutDebugPanel />
 
       {/* Canvas 3D a pantalla completa */}
       <Canvas

@@ -1,69 +1,108 @@
 'use client';
 
-import { useState } from 'react';
 import { Text } from '@react-three/drei';
 import { PIPBOY_COLORS } from '../types';
+import { usePipBoyStore, PIPBOY_TABS, selectCurrentTab, selectIsViewingDetail, type PipBoyStore, type PipBoyTab } from '../store';
+import { StatsView, ProjectListView, ProjectDetailView, SkillsView, DataView } from './views';
 
 interface TerminalContentProps {
   hovered: boolean;
 }
 
-interface TabContent {
-  lines: Array<{
-    text: string;
-    color?: string;
-  }>;
+/**
+ * Header con tabs navegables estilo Fallout
+ */
+function TabHeader() {
+  const currentTab = usePipBoyStore(selectCurrentTab);
+  const currentTabIndex = usePipBoyStore((state: PipBoyStore) => state.currentTabIndex);
+  const setTab = usePipBoyStore((state: PipBoyStore) => state.setTab);
+  const isViewingDetail = usePipBoyStore(selectIsViewingDetail);
+  
+  // No mostrar tabs cuando estamos en vista de detalle
+  if (isViewingDetail) return null;
+  
+  return (
+    <group position={[0, 1.5, 0]}>
+      {PIPBOY_TABS.map((tab: PipBoyTab, i: number) => {
+        const isActive = currentTabIndex === i;
+        const spacing = 0.95;
+        const xPos = (i - (PIPBOY_TABS.length - 1) / 2) * spacing;
+        
+        return (
+          <group key={tab} position={[xPos, 0, 0]}>
+            {/* Fondo activo */}
+            {isActive && (
+              <mesh position={[0, 0, -0.01]}>
+                <planeGeometry args={[0.85, 0.3]} />
+                <meshBasicMaterial color={PIPBOY_COLORS.screenAccent} transparent opacity={0.4} />
+              </mesh>
+            )}
+            
+            <Text
+              fontSize={0.18}
+              color={isActive ? PIPBOY_COLORS.screenText : PIPBOY_COLORS.screenTextMuted}
+              anchorX="center"
+              onClick={() => setTab(tab)}
+            >
+              {tab}
+            </Text>
+          </group>
+        );
+      })}
+      
+      {/* Indicadores de navegación Q/E */}
+      <Text
+        position={[-2, 0, 0]}
+        fontSize={0.15}
+        color={PIPBOY_COLORS.screenAccent}
+        anchorX="center"
+      >
+        {'[Q]'}
+      </Text>
+      <Text
+        position={[2, 0, 0]}
+        fontSize={0.15}
+        color={PIPBOY_COLORS.screenAccent}
+        anchorX="center"
+      >
+        {'[E]'}
+      </Text>
+    </group>
+  );
 }
 
-const TABS = ['STATS', 'PROJECTS', 'SKILLS'] as const;
-
-const TAB_CONTENT: Record<typeof TABS[number], TabContent> = {
-  STATS: {
-    lines: [
-      { text: '> NAME: Lucas Díaz' },
-      { text: '> ROLE: Software Dev' },
-      { text: '> LEVEL: Senior' },
-      { text: '> STATUS: CHECKING...', color: PIPBOY_COLORS.screenText },
-    ],
-  },
-  PROJECTS: {
-    lines: [
-      { text: '[01] Fintech Platform' },
-      { text: '[02] E-Commerce App' },
-      { text: '[03] Real-time Dashboard' },
-      { text: '> SELECT PROJECT...', color: PIPBOY_COLORS.screenText },
-    ],
-  },
-  SKILLS: {
-    lines: [
-      { text: 'React ████████░░ 85%', color: PIPBOY_COLORS.screenText },
-      { text: 'TypeScript ███████░░░ 75%', color: PIPBOY_COLORS.screenText },
-      { text: 'Next.js ████████░░ 80%', color: PIPBOY_COLORS.screenText },
-      { text: 'Three.js ███░░░░░░░ 30%', color: PIPBOY_COLORS.screenText },
-    ],
-  },
-};
+/**
+ * Contenido dinámico según el tab seleccionado
+ */
+function DynamicContent() {
+  const currentTab = usePipBoyStore(selectCurrentTab);
+  const isViewingDetail = usePipBoyStore(selectIsViewingDetail);
+  
+  // Si estamos viendo detalle de proyecto
+  if (isViewingDetail && currentTab === 'PROJECTS') {
+    return <ProjectDetailView />;
+  }
+  
+  // Renderizar vista según tab
+  switch (currentTab) {
+    case 'STATS':
+      return <StatsView />;
+    case 'PROJECTS':
+      return <ProjectListView />;
+    case 'SKILLS':
+      return <SkillsView />;
+    case 'DATA':
+      return <DataView />;
+    default:
+      return <StatsView />;
+  }
+}
 
 /**
  * Contenido de la terminal que se renderiza dentro del RenderTexture
+ * Ahora conectado al store de Zustand para navegación real
  */
 export default function TerminalContent({ hovered }: TerminalContentProps) {
-  const [selectedTab, setSelectedTab] = useState(0);
-  const currentTab = TABS[selectedTab];
-  const content = TAB_CONTENT[currentTab];
-
-  // Actualizar el status dinámicamente
-  const getLines = () => {
-    if (currentTab === 'STATS') {
-      return content.lines.map((line, i) => 
-        i === 3 
-          ? { ...line, text: `> STATUS: ${hovered ? 'ACTIVE' : 'IDLE'}` }
-          : line
-      );
-    }
-    return content.lines;
-  };
-
   return (
     <>
       {/* Fondo de la pantalla - verde oscuro */}
@@ -73,50 +112,25 @@ export default function TerminalContent({ hovered }: TerminalContentProps) {
       <ambientLight intensity={2} />
       
       {/* Header con tabs */}
-      <group position={[0, 1.5, 0]}>
-        {TABS.map((tab, i) => (
-          <Text
-            key={tab}
-            position={[(i - 1) * 1.2, 0, 0]}
-            fontSize={0.25}
-            color={selectedTab === i ? PIPBOY_COLORS.screenText : PIPBOY_COLORS.screenTextMuted}
-            anchorX="center"
-            onClick={() => setSelectedTab(i)}
-          >
-            [{tab}]
-          </Text>
-        ))}
-      </group>
+      <TabHeader />
 
       {/* Línea divisoria */}
-      <mesh position={[0, 1.1, 0]}>
-        <planeGeometry args={[4, 0.02]} />
+      <mesh position={[0, 1.15, 0]}>
+        <planeGeometry args={[4.2, 0.015]} />
         <meshBasicMaterial color={PIPBOY_COLORS.screenText} />
       </mesh>
 
-      {/* Contenido dinámico */}
-      <group position={[0, 0, 0]}>
-        {getLines().map((line, i) => (
-          <Text
-            key={`${currentTab}-${i}`}
-            position={[-1, 0.5 - (i * 0.5), 0]}
-            fontSize={currentTab === 'STATS' ? 0.2 : 0.18}
-            color={line.color || PIPBOY_COLORS.screenTextDim}
-            anchorX="left"
-          >
-            {line.text}
-          </Text>
-        ))}
-      </group>
+      {/* Contenido dinámico según tab */}
+      <DynamicContent />
 
       {/* Footer */}
       <Text 
-        position={[0, -1.7, 0]} 
-        fontSize={0.15} 
+        position={[0, -1.85, 0]} 
+        fontSize={0.12} 
         color={PIPBOY_COLORS.screenAccent} 
         anchorX="center"
       >
-        {`// PIP-BOY 3000 v2026.1`}
+        {`// PIP-BOY 3000 MARK IV // STATUS: ${hovered ? 'ACTIVE' : 'STANDBY'}`}
       </Text>
     </>
   );

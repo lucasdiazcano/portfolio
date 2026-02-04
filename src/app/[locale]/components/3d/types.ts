@@ -4,13 +4,13 @@ import { ReactNode } from 'react';
  * Tipos compartidos para componentes 3D
  */
 
-export interface PipBoyTab {
+export interface PipBoyTabConfig {
   id: string;
   label: string;
 }
 
 export interface PipBoyConfig {
-  tabs: PipBoyTab[];
+  tabs: PipBoyTabConfig[];
   defaultTab?: number;
   screenWidth?: number;
   screenHeight?: number;
