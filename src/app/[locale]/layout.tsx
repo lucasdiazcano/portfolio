@@ -14,22 +14,22 @@ import ThemeSwitcher from "./components/ThemeSwitcher";
 const mulish = localFont({
   src: [
     {
-      path: '../../public/fonts/mulish-v18-cyrillic_latin-regular.woff2',
+      path: '../../../public/fonts/mulish-v18-cyrillic_latin-regular.woff2', // Added one more ../
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/mulish-v18-cyrillic_latin-italic.woff2',
+      path: '../../../public/fonts/mulish-v18-cyrillic_latin-italic.woff2',
       weight: '400',
       style: 'italic',
     },
     {
-      path: '../../public/fonts/mulish-v18-cyrillic_latin-700.woff2',
+      path: '../../../public/fonts/mulish-v18-cyrillic_latin-700.woff2',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/mulish-v18-cyrillic_latin-800.woff2',
+      path: '../../../public/fonts/mulish-v18-cyrillic_latin-800.woff2',
       weight: '800',
       style: 'normal',
     },
