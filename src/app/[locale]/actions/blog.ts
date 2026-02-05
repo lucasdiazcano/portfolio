@@ -1,7 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { z } from 'zod';
+import { z, ZodError } from 'zod';
 import { db } from '@/lib/db';
 import { posts } from '@/db/schema';
 
@@ -34,12 +34,11 @@ export async function createPost(formData: FormData) {
 
     return { success: true, post: newPost };
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      const zodError = error;
-      return { 
-        success: false, 
-        error: 'Datos inválidos', 
-        details: zodError.errors 
+    if (error instanceof ZodError) {
+      return {
+        success: false,
+        error: 'Datos inválidos',
+        details: error.issues
       };
     }
 
@@ -65,11 +64,11 @@ export async function createPostFromObject(data: { title: string; description: s
 
     return { success: true, post: newPost };
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return { 
-        success: false, 
-        error: 'Datos inválidos', 
-        details: error.errors 
+    if (error instanceof ZodError) {
+      return {
+        success: false,
+        error: 'Datos inválidos',
+        details: error.issues
       };
     }
 
