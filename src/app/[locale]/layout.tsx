@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local"; // Cambiamos google por local
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
@@ -9,14 +9,32 @@ import GradualBlur from "@/components/GradualBlur";
 import NavigationProgress from "./components/NavigationProgress";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// Configuración de Mulish Local
+// Asumiendo que pusiste los archivos en public/fonts/mulish/
+const mulish = localFont({
+  src: [
+    {
+      path: '../../public/fonts/mulish-v18-cyrillic_latin-regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/mulish-v18-cyrillic_latin-italic.woff2',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/mulish-v18-cyrillic_latin-700.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/mulish-v18-cyrillic_latin-800.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+  variable: "--font-mulish",
 });
 
 export const metadata: Metadata = {
@@ -37,19 +55,16 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
 
-  // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
     <html lang={locale} className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${mulish.variable} font-sans antialiased`} 
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeSwitcher />
