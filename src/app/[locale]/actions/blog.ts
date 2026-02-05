@@ -1,6 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { eq } from 'drizzle-orm';
 import { z, ZodError } from 'zod';
 import { db } from '@/lib/db';
 import { posts } from '@/db/schema';
@@ -94,7 +95,7 @@ export async function getPosts() {
 // Función para obtener un post por ID
 export async function getPostById(id: number) {
   try {
-    const [post] = await db.select().from(posts).where(posts.id.eq(id));
+    const [post] = await db.select().from(posts).where(eq(posts.id, id));
     return post || null;
   } catch (error) {
     console.error('Error al obtener post:', error);
@@ -105,7 +106,7 @@ export async function getPostById(id: number) {
 // Función para eliminar un post
 export async function deletePost(id: number) {
   try {
-    await db.delete(posts).where(posts.id.eq(id));
+    await db.delete(posts).where(eq(posts.id, id));
     revalidatePath('/blog');
     return { success: true };
   } catch (error) {
