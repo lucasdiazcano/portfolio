@@ -84,12 +84,12 @@ export default function Scene3DFullscreen() {
           {/* Post-processing effects - Sutiles para no afectar mucho el dispositivo */}
           <EffectComposer>
             {/* Glitch - Efecto de interferencia durante el boot */}
-            <GlitchEffect ref={glitchRef} duration={80} intensity={0.5} />
+            <GlitchEffect ref={glitchRef} duration={80} intensity={0.1} />
             
             {/* Bloom - Glow verde estilo Pip-Boy */}
             <Bloom 
-              intensity={0.6}
-              luminanceThreshold={0.3}
+              intensity={1}
+              luminanceThreshold={0.1}
               luminanceSmoothing={0.9}
               mipmapBlur
             />

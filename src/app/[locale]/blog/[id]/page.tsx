@@ -13,7 +13,7 @@ interface Post {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   createdAt: Date | null;
 }
 
@@ -107,17 +107,19 @@ export default function BlogPostPage() {
         {/* Contenedor principal */}
         <article className="backdrop-blur-md bg-card/40 rounded-3xl overflow-hidden border border-border shadow-2xl">
           {/* Imagen destacada */}
-          <div className="relative h-96 w-full">
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-          </div>
+          {post.image && (
+            <div className="relative h-96 w-full">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+            </div>
+          )}
 
           {/* Contenido */}
           <div className="p-8 md:p-12">

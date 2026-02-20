@@ -13,7 +13,7 @@ export interface BlogEntry {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   createdAt: Date | null;
 }
 

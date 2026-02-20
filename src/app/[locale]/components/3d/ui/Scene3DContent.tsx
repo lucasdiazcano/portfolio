@@ -31,17 +31,7 @@ export default function Scene3DContent({ timeIndex, rainIntensity }: Scene3DCont
         background={false}
         environmentIntensity={envIntensity}
       />
-      
-      {/* Contact shadows - sombra suave debajo del Pip-Boy */}
-      <ContactShadows
-        position={[0, -2.2, 0]}
-        opacity={timeIndex === 3 ? 0.3 : 0.6}
-        scale={8}
-        blur={2.5}
-        far={4}
-        color={timeIndex === 3 ? '#001a00' : '#000000'}
-      />
-      
+    
       {/* Sistema de lluvia */}
       <Rain intensity={rainIntensity} />
       

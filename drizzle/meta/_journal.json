@@ -8,6 +8,13 @@
       "when": 1769549025459,
       "tag": "0000_optimal_vindicator",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1771613674212,
+      "tag": "0001_fancy_master_mold",
+      "breakpoints": true
     }
   ]
 }

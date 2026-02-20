@@ -10,7 +10,7 @@ interface BlogCardProps {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   date: string;
 }
 
@@ -52,21 +52,23 @@ export default function BlogCard({ id, title, description, image, date }: BlogCa
   return (
     <article className="backdrop-blur-md bg-card/40 border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 shadow-2xl group relative">
       <Link href={`/blog/${id}`} className="block">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className={`grid gap-6 ${image ? 'md:grid-cols-3' : ''}`}>
           {/* Imagen */}
-          <div className="relative h-64 md:h-full md:col-span-1 overflow-hidden">
-            <Image
-              src={image}
-              alt={title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          </div>
+          {image && (
+            <div className="relative h-64 md:h-full md:col-span-1 overflow-hidden">
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
+          )}
 
           {/* Contenido */}
-          <div className="p-8 md:col-span-2 flex flex-col justify-center">
+          <div className={`p-8 ${image ? 'md:col-span-2' : ''} flex flex-col justify-center`}>
             <time className="text-sm text-muted-foreground/80 mb-3">{formattedDate}</time>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-muted-foreground transition-colors">
               {title}

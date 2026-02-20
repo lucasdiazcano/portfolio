@@ -136,7 +136,7 @@ export default function BlogForm({ onCancel, onSuccess }: BlogFormProps) {
         {/* Subir imagen desde PC */}
         <div>
           <label htmlFor="imageFile" className="block text-sm font-semibold mb-2 text-foreground">
-            Subir Imagen desde tu PC
+            Subir Imagen desde tu PC <span className="text-muted-foreground text-xs font-normal">(Opcional)</span>
           </label>
           <div className="space-y-3">
             <input

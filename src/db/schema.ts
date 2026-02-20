@@ -4,7 +4,7 @@ export const posts = pgTable('posts', {
   id: serial('id').primaryKey(),
   title: text('title').notNull(),
   description: text('description').notNull(),
-  image: text('image').notNull(),
+  image: text('image'), // Opcional - puede ser null
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 

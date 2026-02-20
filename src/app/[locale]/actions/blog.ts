@@ -9,8 +9,8 @@ import { posts } from '@/db/schema';
 const postSchema = z.object({
   title: z.string().min(1, 'El título es requerido').max(200, 'El título es muy largo'),
   description: z.string().min(1, 'La descripción es requerida').max(5000, 'La descripción es muy larga'),
-  image: z.string().min(1, 'La imagen es requerida').refine(
-    (val) => val.startsWith('http://') || val.startsWith('https://') || val.startsWith('/'),
+  image: z.string().optional().refine(
+    (val) => !val || val === '' || val.startsWith('http://') || val.startsWith('https://') || val.startsWith('/'),
     'Debe ser una URL válida o una ruta de imagen'
   ),
 });
@@ -18,17 +18,21 @@ const postSchema = z.object({
 export async function createPost(formData: FormData) {
   try {
     // Extraer datos del FormData
+    const imageValue = formData.get('image');
     const data = {
       title: formData.get('title'),
       description: formData.get('description'),
-      image: formData.get('image'),
+      image: imageValue && imageValue.toString().trim() !== '' ? imageValue : undefined,
     };
 
     // Validar datos con Zod
     const validatedData = postSchema.parse(data);
 
-    // Insertar en la base de datos
-    const [newPost] = await db.insert(posts).values(validatedData).returning();
+    // Insertar en la base de datos (image puede ser null/undefined)
+    const [newPost] = await db.insert(posts).values({
+      ...validatedData,
+      image: validatedData.image || null,
+    }).returning();
 
     // Revalidar la página de blog para mostrar el nuevo post
     revalidatePath('/blog');
@@ -52,13 +56,22 @@ export async function createPost(formData: FormData) {
 }
 
 // Alternativa: aceptar objeto directamente en lugar de FormData
-export async function createPostFromObject(data: { title: string; description: string; image: string }) {
+export async function createPostFromObject(data: { title: string; description: string; image?: string }) {
   try {
-    // Validar datos con Zod
-    const validatedData = postSchema.parse(data);
+    // Preparar datos - convertir string vacío a undefined
+    const processedData = {
+      ...data,
+      image: data.image && data.image.trim() !== '' ? data.image : undefined,
+    };
 
-    // Insertar en la base de datos
-    const [newPost] = await db.insert(posts).values(validatedData).returning();
+    // Validar datos con Zod
+    const validatedData = postSchema.parse(processedData);
+
+    // Insertar en la base de datos (image puede ser null/undefined)
+    const [newPost] = await db.insert(posts).values({
+      ...validatedData,
+      image: validatedData.image || null,
+    }).returning();
 
     // Revalidar la página de blog para mostrar el nuevo post
     revalidatePath('/blog');
