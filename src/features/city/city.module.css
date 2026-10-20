@@ -1,0 +1,101 @@
+.game { position: fixed; inset: 0; z-index: 10001; overflow: hidden; background: #8d9a9e; color: #f4f0df; font-family: var(--font-mulish), sans-serif; }
+.game button, .game a, .game select { -webkit-tap-highlight-color: transparent; }
+.game button, .game select { font: inherit; }
+.game button { cursor: pointer; }
+.game button:disabled { opacity: .5; cursor: wait; }
+.game a { color: inherit; text-decoration: none; }
+.game button:focus-visible, .game a:focus-visible, .game select:focus-visible { outline: 2px solid #d7ff9e; outline-offset: 6px; }
+.viewport { position: absolute; inset: 0; touch-action: none; }
+.header { position: absolute; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 28px 36px; gap: 20px; z-index: 3; background: linear-gradient(#19282b70, transparent); }
+.brand { font-size: 22px; letter-spacing: -.08em; font-weight: 800; }
+.brand span { font: 10px monospace; letter-spacing: .13em; margin-left: 16px; }
+.status { font: 10px monospace; letter-spacing: .14em; display: flex; align-items: center; gap: 10px; }
+.status i { height: 6px; width: 6px; border-radius: 50%; background: #d7ff9e; box-shadow: 0 0 12px #d7ff9e; }
+.status span { opacity: .5; }
+.menuButton { background: #1f303770; color: #f4f0df; padding: 10px 14px; border: 1px solid #f4f0df40; border-radius: 4px; font-size: 12px !important; }
+.location { position: absolute; top: 120px; left: 36px; pointer-events: none; text-shadow: 0 2px 16px #17272b; }
+.location > span { font: 9px monospace; letter-spacing: .12em; }
+.location h1 { font-size: clamp(20px, 3vw, 34px); letter-spacing: -.04em; font-weight: 800; margin: 10px 0 5px; }
+.location h1 span { font-weight: 400; opacity: .65; }
+.location p { font-size: 12px; opacity: .8; }
+.destinations { position: absolute; top: 120px; right: 36px; display: flex; flex-direction: column; align-items: end; gap: 10px; font: 11px monospace; }
+.destinations a { background: #1d2b34ad; padding: 10px 14px; border: 1px solid #fff2; border-radius: 3px; transition: background .2s; }
+.destinations a:hover { background: #364b47; }
+.controls { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font: 10px monospace; white-space: nowrap; padding: 12px 18px; border: 1px solid #fff2; background: #17272bc7; border-radius: 4px; }
+.controls span { color: #d7ff9e; }.controls b { opacity: .3; margin: 0 8px; }
+.map { position: absolute; left: 36px; bottom: 28px; width: 136px; padding: 12px; background: #17272be0; border: 1px solid #dfefcb35; border-radius: 4px; }
+.north { font: 9px monospace; display: block; text-align: right; color: #d7ff9e; }
+.mapWorld { position: relative; width: 110px; height: 128px; margin: 8px 0; overflow: hidden; background: #d2e0ce08; }
+.mapRoad { position: absolute; left: 35%; width: 30%; height: 100%; background: #c9d9d210; }
+.mapGallery { position: absolute; top: 9%; left: 31%; width: 38%; height: 50%; border: 1px solid #d7ff9e; display: grid; grid-template-columns: 1fr 1fr; text-align: center; color: #d7ff9e; font: 7px monospace; }.mapGallery span { display: grid; place-items: center; border: 1px solid #d7ff9e30; }.mapGallery span:first-child { grid-column: span 2; }
+.mapBlock, .mapBlockRight { position: absolute; left: 5%; top: 50%; width: 23%; height: 39%; background: #d2e0ce25; }.mapBlockRight { left: auto; right: 5%; top: 47%; }
+.playerMarker { position: absolute; left: 50%; top: 84.5%; width: 7px; height: 7px; margin: -3px; border-radius: 50%; background: #d7ff9e; box-shadow: 0 0 8px #d7ff9e; }
+.map p { font: 8px monospace; letter-spacing: .07em; margin: 0; }
+.interact { position: absolute; left: 50%; bottom: 100px; transform: translateX(-50%); display: flex; align-items: center; gap: 20px; background: var(--company-surface); border: 1px solid var(--company-accent); border-top-width: 3px; color: var(--company-ink); border-radius: 4px; padding: 15px 20px; min-width: 270px; text-align: left; font-weight: 700 !important; }
+.interact kbd { border: 1px solid #223a2c55; border-radius: 3px; padding: 5px 8px; }.interact small { display: block; font-weight: 400; margin-top: 3px; }
+.start { position: absolute; inset: 0; display: flex; align-items: center; background: linear-gradient(90deg, #14282ef2, #14282eb3 43%, #14282e00 85%); padding: 110px 8vw 60px; z-index: 2; overflow-y: auto; }
+.startContent { max-width: 560px; }
+.eyebrow { font: 9px/1.6 monospace; letter-spacing: .14em; color: #d7ff9e; }
+.start h1 { font-size: clamp(52px, 7.5vw, 110px); font-weight: 800; letter-spacing: -.065em; line-height: 1; margin: 28px 0; }
+.start h1 span { display: block; font-size: .46em; line-height: 1.14; letter-spacing: -.04em; margin-top: 16px; font-weight: 400; color: #e4e8dc; }
+.intro { max-width: 390px; font-size: 14px; line-height: 1.8; color: #c1ccc7; margin: 26px 0; }
+.primary { background: #d7ff9e; color: #203029; border: none; border-radius: 3px; padding: 17px 23px; display: flex; justify-content: space-between; gap: 60px; font-weight: 800 !important; min-width: 280px; }
+.primary:hover { background: #e5ffc6; }.primary span { font-size: 20px; }
+.settings { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin: 24px 0; font: 11px monospace; color: #c1ccc7; }
+.settings select { margin-left: 8px; color: #f4f0df; background: #243b3c; border: 1px solid #ffffff30; border-radius: 3px; padding: 6px; }
+.settings button { border: 0; padding: 4px; background: none; color: #d7ff9e; font-size: 11px; }
+.skip { font-size: 12px; border-bottom: 1px solid #c1ccc750; padding-bottom: 5px; }
+.prototype { font: 9px/1.6 monospace; color: #93a7a3; margin-top: 30px; }
+.startCoordinates { position: absolute; bottom: 40px; right: 36px; text-align: right; font-size: 16px; letter-spacing: .1em; }.startCoordinates span { font: 8px monospace; letter-spacing: .08em; }
+.dialog { position: fixed; inset: 0; margin: auto; width: min(620px, calc(100vw - 32px)); max-height: 85dvh; overflow-y: auto; padding: 48px; border: 1px solid #acc3ab60; border-top: 4px solid var(--company-accent); border-radius: 6px; background: #17292d; color: #e4e8dc; box-shadow: 0 30px 100px #0008; }
+.companyBanner { background: var(--company-surface); color: var(--company-ink); padding: 24px; margin: 0 0 28px; border-radius: 3px; border-left: 4px solid var(--company-accent); }
+.companyBanner > span { display: block; font-size: clamp(22px, 4vw, 34px); letter-spacing: -.04em; font-weight: 800; }.companyBanner small { display: block; margin-top: 10px; font: 10px monospace; letter-spacing: .08em; }
+.galleryGuide { position: absolute; right: 36px; bottom: 28px; padding: 14px; background: #17272be0; border: 1px solid #dfefcb35; border-radius: 4px; width: 215px; }
+.galleryGuide p { font: 8px monospace; letter-spacing: .15em; margin: 0 0 12px; color: #c1ccc7; }.galleryGuide > button { display: flex; align-items: center; gap: 10px; padding: 8px; margin-top: 4px; width: 100%; border: 0; text-align: left; cursor: pointer; background: var(--company-surface); color: var(--company-ink); border-left: 3px solid var(--company-accent); }.galleryGuide b { font-size: 10px; font-weight: 700; }.galleryGuide span { font: 9px monospace; opacity: .7; }
+@media (max-width: 1000px), (pointer: coarse) { .galleryGuide { display: none; } }
+.dialog::backdrop { background: #0d1c22a8; backdrop-filter: blur(8px); }.dialog h2 { font-size: clamp(25px, 4vw, 36px); letter-spacing: -.04em; line-height: 1.15; margin: 15px 0 22px; font-weight: 800; }
+.dialog p:not(.eyebrow) { line-height: 1.8; font-size: 14px; color: #c1ccc7; }.dialog ul { display: flex; gap: 8px; flex-wrap: wrap; padding: 0; margin: 25px 0; list-style: none; }.dialog li { padding: 6px 10px; border: 1px solid #e4e8dc30; border-radius: 20px; font: 11px monospace; }.dialog > a { color: #d7ff9e; font-size: 13px; }
+.sector { display: inline-block; margin-top: 20px; font: 10px monospace; color: #d7ff9e; }.close { position: absolute; top: 12px; right: 18px; border: 0; background: none; color: #e4e8dc; font-size: 30px !important; }
+.failure { position: absolute; inset: 0; z-index: 10; padding: 12vw; display: flex; flex-direction: column; justify-content: center; gap: 20px; background: #17292d; }.failure a { color: #d7ff9e; text-decoration: underline; }
+.touchControls { display: none; }
+@media (pointer: coarse), (max-width: 700px) { .touchControls { position: absolute; bottom: max(30px, env(safe-area-inset-bottom)); right: max(24px, env(safe-area-inset-right)); display: grid; grid-template-columns: repeat(3, 48px); gap: 5px; }.touchControls button { touch-action: none; width: 48px; height: 48px; color: #e4e8dc; background: #17272bd9; border: 1px solid #d7ff9e55; border-radius: 6px; user-select: none; }.touchControls button:first-child { grid-column: 2; }.touchControls button:nth-child(2) { grid-column: 1; }.touchControls button:last-child { grid-column: 3; grid-row: 1; }.touchControls button:active { color: #17272b; background: #d7ff9e; }.controls { display: none; } }
+@media (max-width: 700px) { .header { padding: 20px; }.brand span, .status { display: none; }.location { left: 20px; top: 90px; }.location > span { font-size: 8px; }.location h1 { font-size: 24px; }.location p { max-width: 240px; font-size: 11px; }.destinations { top: auto; bottom: 205px; right: 20px; font-size: 9px; }.map { left: 20px; bottom: 22px; width: 104px; }.mapWorld { width: 78px; height: 95px; }.map p { font-size: 6px; }.controls { bottom: 22px; left: auto; right: 20px; transform: none; font-size: 8px; max-width: 210px; white-space: normal; line-height: 1.8; }.start { padding: 100px 24px 40px; background: linear-gradient(90deg, #14282ef5, #14282eb3); }.start h1 { font-size: 64px; }.startCoordinates { display: none; }.intro { font-size: 13px; }.eyebrow { font-size: 8px; }.dialog { padding: 36px 24px; }.interact { bottom: 190px; min-width: 250px; } }
+@media (max-height: 620px) { .start { align-items: flex-start; }.start h1 { font-size: 48px; margin: 12px 0; }.intro { margin: 14px 0; }.prototype { margin-top: 15px; }.location { top: 80px; }.mapWorld { height: 70px; } }
+
+.roomSections { margin: 24px 0; display: grid; gap: 18px; }
+.roomSections section { border-left: 2px solid var(--company-accent); padding-left: 16px; }
+.roomSections h3 { margin: 0 0 6px; font-size: 16px; font-weight: 700; }
+.roomSections p { margin: 0; }
+.galleryGuide > button[data-active="true"] { outline: 1px solid var(--company-accent); outline-offset: 2px; }
+
+.viewSwitch { display: flex; gap: 3px; padding: 4px; background: #17272be8; border: 1px solid #e4e8dc35; border-radius: 6px; }
+.viewSwitch button { border: 0; background: transparent; color: #c1ccc7; padding: 9px 13px; border-radius: 3px; font-size: 11px; white-space: nowrap; }
+.viewSwitch button[aria-pressed="true"] { background: #d7ff9e; color: #203029; font-weight: 800; }
+.roomPin { min-width: 120px; padding: 10px 14px; border: 1px solid #d4c4a1; border-radius: 5px; background: #17272bf5; box-shadow: 0 5px 20px #0006; color: #f4f0df; font: 700 12px var(--font-mulish), sans-serif; cursor: pointer; white-space: nowrap; }
+.roomPin > span { color: #d7ff9e; margin-right: 8px; font: 10px monospace; }
+.roomPin small { display: block; margin-top: 5px; color: #c1ccc7; font-size: 9px; font-weight: 400; }
+.roomPin:hover { background: #304640; transform: translateY(-2px); }
+.roomPin:focus-visible { outline: 2px solid #d7ff9e; outline-offset: 4px; }
+.navigationStatus { position: absolute; left: 50%; bottom: 82px; transform: translateX(-50%); padding: 8px 12px; border-radius: 4px; color: #e4e8dc; background: #17272bd9; font: 10px monospace; pointer-events: none; }
+.hideControls { display: none; }
+.storyWindow { inset: 90px 24px auto auto; margin: 0; width: min(430px, 45vw); max-height: calc(100dvh - 120px); padding: 30px; background: #17292df5; box-shadow: 0 15px 60px #0007; }
+.storyWindow::backdrop { background: #07131c20; backdrop-filter: none; }
+.storyWindow .companyBanner { padding: 18px; margin-bottom: 16px; }
+.storyWindow .companyBanner > span { font-size: 25px; }
+.storyWindow h2 { font-size: 27px; }
+@media (max-width: 700px) {
+  .viewSwitch button { padding: 8px; font-size: 10px; }
+  .header { gap: 8px; }
+  .navigationStatus { bottom: 35px; width: max-content; max-width: calc(100vw - 32px); font-size: 9px; text-align: center; }
+  .storyWindow { inset: auto 12px 12px; width: calc(100vw - 24px); max-height: 55dvh; padding: 26px 22px; }
+  .roomPin { min-width: 90px; padding: 8px; font-size: 10px; }
+}
+
+.isoGuide { display: block; }
+@media (max-width: 1000px) { .isoGuide { width: 168px; right: 16px; bottom: 20px; padding: 10px; }.isoGuide > button { padding: 7px; } }
+@media (max-width: 700px) { .isoDestinations { display: none; } }
+
+.galleryGuide, .map, .destinations { z-index: 3; }
+.controls { pointer-events: none; }
+
+.storyWindow .close { position: sticky; top: 0; float: right; z-index: 1; margin: -16px -16px 0 0; width: 34px; height: 34px; line-height: 30px; background: #17292d; border: 1px solid #e4e8dc40; border-radius: 4px; }

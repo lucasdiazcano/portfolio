@@ -1,0 +1,18 @@
+{
+  "source": "public/profile.png",
+  "sourceSha256": "2716fc268ffa995fa43ed36918804578bd3ede1a7b3b5ddfbd8e6620a320555e",
+  "sourceBytes": 583733,
+  "sourceDimensions": [
+    601,
+    871
+  ],
+  "output": "public/city/textures/face-mask.webp",
+  "outputBytes": 35228,
+  "outputDimensions": [
+    384,
+    557
+  ],
+  "quality": 82,
+  "reductionPercent": 93.96504908922401,
+  "originalPreserved": true
+}

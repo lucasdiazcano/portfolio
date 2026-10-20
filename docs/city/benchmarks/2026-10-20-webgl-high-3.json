@@ -1,0 +1,272 @@
+{
+  "schema": 1,
+  "environment": "production",
+  "capturedAt": "2026-10-20T16:05:05.314Z",
+  "renderer": {
+    "requested": "webgl",
+    "actual": "webgl2",
+    "initializationMs": 6.700000047683716,
+    "fallbackReason": null
+  },
+  "quality": "high",
+  "viewport": {
+    "width": 768,
+    "height": 690,
+    "bufferWidth": 922,
+    "bufferHeight": 828,
+    "devicePixelRatio": 1.2000000476837158
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 8,
+  "assetsReadyFromNavigationMs": 853.3000000715256,
+  "transfer": {
+    "scope": "same-origin document and resources since navigation; localhost, cache not forced cold",
+    "bytesIncludingHeaders": 1231971,
+    "encodedResourceBytes": 1216186,
+    "zeroTransferResources": 0,
+    "resources": [
+      {
+        "path": "/_next/static/media/8cdf399d6034b38e-s.p.woff2",
+        "transferBytes": 18584,
+        "encodedBytes": 18284
+      },
+      {
+        "path": "/_next/static/media/fae5888e8d87ad67-s.p.woff2",
+        "transferBytes": 18520,
+        "encodedBytes": 18220
+      },
+      {
+        "path": "/_next/static/media/a722e6f953c749ae-s.p.woff2",
+        "transferBytes": 18384,
+        "encodedBytes": 18084
+      },
+      {
+        "path": "/_next/static/media/ba1e21c43d7881a8-s.p.woff2",
+        "transferBytes": 19768,
+        "encodedBytes": 19468
+      },
+      {
+        "path": "/_next/static/css/59ed67eed4044fe2.css",
+        "transferBytes": 8556,
+        "encodedBytes": 8256
+      },
+      {
+        "path": "/_next/static/chunks/webpack-ca18fdab015c1c54.js",
+        "transferBytes": 2998,
+        "encodedBytes": 2698
+      },
+      {
+        "path": "/_next/static/chunks/main-app-bf4b3bafc3e92949.js",
+        "transferBytes": 816,
+        "encodedBytes": 516
+      },
+      {
+        "path": "/_next/static/chunks/9826-f5401fbb036f53a1.js",
+        "transferBytes": 51361,
+        "encodedBytes": 51061
+      },
+      {
+        "path": "/_next/static/chunks/4bd1b696-8cb82ea33ee06269.js",
+        "transferBytes": 62754,
+        "encodedBytes": 62454
+      },
+      {
+        "path": "/_next/static/chunks/app/%5Blocale%5D/city/page-36c7d9adfe5cb524.js",
+        "transferBytes": 1899,
+        "encodedBytes": 1599
+      },
+      {
+        "path": "/_next/static/chunks/2479-670ce33c048b68ae.js",
+        "transferBytes": 15664,
+        "encodedBytes": 15364
+      },
+      {
+        "path": "/_next/static/chunks/2129-9719aa5f209a3d4e.js",
+        "transferBytes": 102809,
+        "encodedBytes": 102509
+      },
+      {
+        "path": "/_next/static/chunks/app/%5Blocale%5D/layout-1a519046d70f5e85.js",
+        "transferBytes": 4184,
+        "encodedBytes": 3884
+      },
+      {
+        "path": "/_next/static/chunks/bd904a5c-a89b68d1e9a1c97b.js",
+        "transferBytes": 100239,
+        "encodedBytes": 99939
+      },
+      {
+        "path": "/_next/static/chunks/51749ec1-ddc96e45702dbf3a.js",
+        "transferBytes": 46315,
+        "encodedBytes": 46015
+      },
+      {
+        "path": "/_next/static/chunks/6990-c09aec3eb3329f05.js",
+        "transferBytes": 5556,
+        "encodedBytes": 5256
+      },
+      {
+        "path": "/_next/static/chunks/b536a0f1-8b5312105cd5cf36.js",
+        "transferBytes": 85191,
+        "encodedBytes": 84891
+      },
+      {
+        "path": "/_next/static/chunks/358.d8e519309536fafa.js",
+        "transferBytes": 3287,
+        "encodedBytes": 2987
+      },
+      {
+        "path": "/_next/static/chunks/5793.a677aa3dcd9355c7.js",
+        "transferBytes": 14412,
+        "encodedBytes": 14112
+      },
+      {
+        "path": "/favicon.ico",
+        "transferBytes": 26231,
+        "encodedBytes": 25931
+      },
+      {
+        "path": "/_next/static/css/609964cccc19571c.css",
+        "transferBytes": 3103,
+        "encodedBytes": 2803
+      },
+      {
+        "path": "/_next/static/chunks/4458.ba65fd4c0e355355.js",
+        "transferBytes": 1743,
+        "encodedBytes": 1443
+      },
+      {
+        "path": "/es/projects",
+        "transferBytes": 473,
+        "encodedBytes": 173
+      },
+      {
+        "path": "/es",
+        "transferBytes": 463,
+        "encodedBytes": 163
+      },
+      {
+        "path": "/es/projects",
+        "transferBytes": 1052,
+        "encodedBytes": 752
+      },
+      {
+        "path": "/es",
+        "transferBytes": 1043,
+        "encodedBytes": 743
+      },
+      {
+        "path": "/fonts/helvetiker_regular.typeface.json",
+        "transferBytes": 22419,
+        "encodedBytes": 22119
+      },
+      {
+        "path": "/_next/static/chunks/2934.15d1187387712a04.js",
+        "transferBytes": 1188,
+        "encodedBytes": 888
+      },
+      {
+        "path": "/profile.png",
+        "transferBytes": 584033,
+        "encodedBytes": 583733
+      },
+      {
+        "path": "/es/pipboy",
+        "transferBytes": 471,
+        "encodedBytes": 171
+      },
+      {
+        "path": "/es/profile",
+        "transferBytes": 470,
+        "encodedBytes": 170
+      },
+      {
+        "path": "/es/pipboy",
+        "transferBytes": 1051,
+        "encodedBytes": 751
+      },
+      {
+        "path": "/es/profile",
+        "transferBytes": 1049,
+        "encodedBytes": 749
+      }
+    ]
+  },
+  "limitations": [
+    "Frame intervals are not GPU execution times.",
+    "Geometry/texture counters are object counts, not GPU memory bytes.",
+    "JS heap is optional and not total browser memory.",
+    "This run does not establish cold WAN loading or physical mobile performance."
+  ],
+  "status": "complete",
+  "reason": null,
+  "durationMs": 26928.100000023842,
+  "warmupMs": 5000,
+  "overall": {
+    "frames": 1644,
+    "fps": 74.97297962877373,
+    "frameMsP50": 13.300000071525574,
+    "frameMsP95": 15,
+    "frameMsMax": 15.600000023841858,
+    "drawCallsP95": 206,
+    "trianglesP95": 26160,
+    "geometriesMax": 129,
+    "texturesMax": 4,
+    "heapBytesFirst": 51229326,
+    "heapBytesLast": 43761829
+  },
+  "phases": {
+    "outbound": {
+      "frames": 673,
+      "fps": 74.97270681629459,
+      "frameMsP50": 13.300000071525574,
+      "frameMsP95": 14.700000047683716,
+      "frameMsMax": 15.5,
+      "drawCallsP95": 203,
+      "trianglesP95": 26124,
+      "geometriesMax": 129,
+      "texturesMax": 4,
+      "heapBytesFirst": 51229326,
+      "heapBytesLast": 50017242
+    },
+    "exhibit": {
+      "frames": 150,
+      "fps": 74.97375918249861,
+      "frameMsP50": 13.300000071525574,
+      "frameMsP95": 14.600000023841858,
+      "frameMsMax": 15.199999928474426,
+      "drawCallsP95": 144,
+      "trianglesP95": 13162,
+      "geometriesMax": 129,
+      "texturesMax": 4,
+      "heapBytesFirst": 50203766,
+      "heapBytesLast": 56712468
+    },
+    "return": {
+      "frames": 671,
+      "fps": 74.97290472539218,
+      "frameMsP50": 13.300000071525574,
+      "frameMsP95": 15.299999952316284,
+      "frameMsMax": 15.600000023841858,
+      "drawCallsP95": 200,
+      "trianglesP95": 26080,
+      "geometriesMax": 129,
+      "texturesMax": 4,
+      "heapBytesFirst": 56712468,
+      "heapBytesLast": 47707462
+    },
+    "cooldown": {
+      "frames": 150,
+      "fps": 74.97375918249861,
+      "frameMsP50": 13.300000071525574,
+      "frameMsP95": 15.299999952316284,
+      "frameMsMax": 15.400000095367432,
+      "drawCallsP95": 206,
+      "trianglesP95": 26160,
+      "geometriesMax": 129,
+      "texturesMax": 4,
+      "heapBytesFirst": 47707462,
+      "heapBytesLast": 43761829
+    }
+  }
+}

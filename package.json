@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "assets:city": "node scripts/optimize-city-portrait.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:city": "eslint src/features/city scripts/test-city.mjs 'src/app/[locale]/city/page.tsx'",
+    "test:city": "node scripts/test-city.mjs",
+    "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",

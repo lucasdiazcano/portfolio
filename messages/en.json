@@ -6,7 +6,7 @@
   },
   "hero": {
     "name": "Lucas Diaz Cano",
-    "title": "Senior Frontend Engineer building scalable web applications and leading high-performance teams in the Fintech and Healthcare sectors.",
+    "title": "Senior Frontend Engineer developing and delivering features for banking and healthcare products.",
     "altImage": "Lucas Diaz Cano"
   },
   "education": {
@@ -22,8 +22,9 @@
     "allTeamEnglish": "All team communication in English",
     "list": [
       {
+        "brandId": "bbva",
         "title": "Banco BBVA - Mobile & Web Renewal",
-        "description": "Led the architectural renovation of BBVA's mobile and web platforms using TypeScript and Micro-frontends (Open Cells). Engineered a high-performance modular system to modernize legacy flows, significantly improving developer velocity and cross-platform consistency.",
+        "description": "My longest client experience and where I currently have the greatest seniority. I contribute as a senior engineer to digital banking features at BBVA, drawing on accumulated knowledge of the product.",
         "technologies": ["React", "TypeScript", "Open Cells", "Micro-frontends", "Fintech"],
         "sector": "Fintech",
         "client": "Banco BBVA",
@@ -31,8 +32,9 @@
         "context": "Fintech digital transformation at scale"
       },
       {
+        "brandId": "johnson-and-johnson",
         "title": "Johnson & Johnson - Data Visualization",
-        "description": "Developed a mission-critical analytics platform for global teams (USA & Europe). Built complex, real-time dashboards with Recharts and Redux, ensuring 100% data integrity through strict TypeScript typing and Unit Testing (Jest).",
+        "description": "I contributed as a senior frontend engineer for Johnson & Johnson in an international team. My work involved implementing features, integrating changes and participating in product deliveries.",
         "technologies": ["React", "TypeScript", "Redux", "Recharts", "Jest", "Healthcare"],
         "sector": "Healthcare & Analytics",
         "client": "Johnson & Johnson",
@@ -41,8 +43,9 @@
         "englishCommunication": true
       },
       {
+        "brandId": "hipotecario",
         "title": "Banco Hipotecario - Core Banking",
-        "description": "Architected and launched a comprehensive core banking platform from scratch. Established rigorous Code Review protocols and technical documentation that reduced development lead times by 30%. Focused on Accessibility (WCAG) and reusable component patterns.",
+        "description": "I contributed as a senior frontend engineer for Banco Hipotecario. I worked on product features, change integration and deployments alongside the team.",
         "technologies": ["React", "Redux", "TypeScript", "Cypress", "Agile/SCRUM"],
         "sector": "Fintech",
         "client": "Banco Hipotecario",
@@ -67,7 +70,7 @@
     "subtitle": "Senior Frontend Engineer with 5+ years of experience",
     "about": {
       "title": "About",
-      "description": "Senior Frontend Engineer with 5+ years of experience specializing in the React ecosystem. Background in Cognitive Psychology, providing a unique edge in building intuitive UX/UI and leading high-performance teams. Proven track record in the Fintech and Healthcare sectors, delivering scalable architectures for global clients."
+      "description": "Senior Frontend Engineer with experience in banking and healthcare products. I work at Globant and contribute to feature development and deployments for its clients. My education includes Psychology at Universidad de Palermo and web development at Plataforma 5."
     },
     "employment": {
       "title": "Employment History",
@@ -75,7 +78,7 @@
       "position": "Senior Software Engineer",
       "company": "Globant",
       "period": "June 2021 - Present",
-      "description": "Leading frontend development for major clients in Fintech and Healthcare sectors. Specializing in React ecosystem, scalable architectures, and high-performance applications."
+      "description": "Globant is my employer. Through Globant I contribute as a senior engineer to teams building products for BBVA, Johnson & Johnson and Banco Hipotecario. This hall connects those experiences and my professional growth."
     },
     "skills": {
       "title": "Skills",
@@ -103,5 +106,125 @@
     "technologies": "Technologies",
     "sector": "Sector",
     "client": "Client"
+  },
+  "museum": {
+    "rooms": [
+      {
+        "brandId": "globant",
+        "client": "Globant",
+        "description": "Globant is my employer. Through Globant I contribute as a senior engineer to teams building products for BBVA, Johnson & Johnson and Banco Hipotecario. This hall connects those experiences and my professional growth.",
+        "label": "Globant",
+        "role": "Senior Software Engineer",
+        "sections": [
+          {
+            "body": "I work at Globant. The other company rooms describe my contributions within teams working for those clients.",
+            "title": "My connection"
+          },
+          {
+            "body": "I develop features, integrate changes and participate in deployments. My contribution takes place within the team, in collaboration with other disciplines.",
+            "title": "My senior contribution"
+          },
+          {
+            "body": "Banking and healthcare are the contexts where I have built experience. BBVA is currently the account where I have the longest track record and greatest seniority.",
+            "title": "My journey"
+          }
+        ],
+        "sector": "Employer · Software development",
+        "technologies": ["Frontend", "Feature delivery", "Teamwork"],
+        "title": "The framework of my career"
+      },
+      {
+        "brandId": "bbva",
+        "client": "BBVA",
+        "description": "My longest client experience and where I currently have the greatest seniority. I contribute as a senior engineer to digital banking features at BBVA, drawing on accumulated knowledge of the product.",
+        "label": "BBVA",
+        "role": "Senior Frontend Engineer",
+        "sections": [
+          {
+            "body": "Implementing and integrating frontend features into product flows, working within a shared codebase.",
+            "title": "Feature development"
+          },
+          {
+            "body": "Contributing to change validation and deployments, and supporting the evolution of delivered features.",
+            "title": "Delivery and deployment"
+          },
+          {
+            "body": "My longer track record on this account brings greater product and code context, allowing me to approach work with more autonomy and technical judgment.",
+            "title": "Accumulated experience"
+          }
+        ],
+        "sector": "Client · Digital banking",
+        "technologies": ["TypeScript", "Open Cells", "Web Components", "Frontend"],
+        "title": "Experience and continuity in banking"
+      },
+      {
+        "brandId": "johnson-and-johnson",
+        "client": "Johnson & Johnson",
+        "description": "I contributed as a senior frontend engineer for Johnson & Johnson in an international team. My work involved implementing features, integrating changes and participating in product deliveries.",
+        "label": "Johnson & Johnson",
+        "role": "Senior Frontend Engineer",
+        "sections": [
+          {
+            "body": "Developing interfaces and data visualizations within the product, in collaboration with the team.",
+            "title": "Frontend features"
+          },
+          {
+            "body": "Working on frontend changes, validation and integration, and participating in feature deployments.",
+            "title": "Quality and delivery"
+          },
+          {
+            "body": "Experience working remotely in an international team, communicating in English.",
+            "title": "International collaboration"
+          }
+        ],
+        "sector": "Client · Healthcare",
+        "technologies": ["React", "TypeScript", "Redux", "Recharts", "Jest"],
+        "title": "Frontend in a global context"
+      },
+      {
+        "brandId": "hipotecario",
+        "client": "Banco Hipotecario",
+        "description": "I contributed as a senior frontend engineer for Banco Hipotecario. I worked on product features, change integration and deployments alongside the team.",
+        "label": "Banco Hipotecario",
+        "role": "Senior Frontend Engineer",
+        "sections": [
+          {
+            "body": "Developing frontend features and interfaces for a banking product as part of a development team.",
+            "title": "My contribution"
+          },
+          {
+            "body": "Participating in change review and integration, and delivering features to product environments.",
+            "title": "Integration and deployment"
+          },
+          {
+            "body": "An experience that forms part of my senior engineering journey in financial products and the technical judgment I continue to develop.",
+            "title": "Experience in banking"
+          }
+        ],
+        "sector": "Client · Banking",
+        "technologies": ["React", "Redux", "TypeScript", "Cypress"],
+        "title": "Building features for banking"
+      },
+      {
+        "brandId": "education",
+        "client": "Universidad de Palermo · Plataforma 5",
+        "description": "My education combines Psychology at Universidad de Palermo with web development at the Plataforma 5 bootcamp. Two distinct stages that form part of my journey.",
+        "label": "Education",
+        "role": "Psychology · Web development",
+        "sections": [
+          {
+            "body": "Education in Psychology. An interest in people, their processes and how they understand the world informs my professional perspective.",
+            "title": "Universidad de Palermo"
+          },
+          {
+            "body": "Coding and web development bootcamp, studying JavaScript, React, Node and SASS.",
+            "title": "Plataforma 5"
+          }
+        ],
+        "sector": "Education",
+        "technologies": ["Psychology", "JavaScript", "React", "Node.js"],
+        "title": "Two ways of understanding and building"
+      }
+    ]
   }
 }

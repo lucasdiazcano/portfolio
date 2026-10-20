@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
-export default function ColorSlider({ value, onChange }) {
+interface ColorSliderProps {
+  value?: string;
+  onChange?: (color: string) => void;
+}
+
+/** Edits the initial Pip-Boy color and reports subsequent color selections. */
+export default function ColorSlider({ value, onChange }: ColorSliderProps) {
   // value: color in hex, e.g. '#00ff00'
   // onChange: function(hexColor)
   const [color, setColor] = useState(value || '#00ff00');
 
-  function handleChange(e) {
+  /** Reports the color input's selected hexadecimal value. */
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setColor(e.target.value);
-    onChange && onChange(e.target.value);
+    onChange?.(e.target.value);
   }
 
   return (

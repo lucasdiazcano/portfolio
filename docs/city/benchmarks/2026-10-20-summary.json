@@ -1,0 +1,28 @@
+{
+  "buildId": "vO1LduuKGw7rnQ4IrX86E",
+  "protocol": "production, high, fixed viewport, 5s warmup, plaza-exhibit-plaza; three consecutive WebGL runs then three consecutive WebGPU runs; cache not cleared",
+  "backends": {
+    "webgl2": {
+      "runs": 3,
+      "fpsMedian": 74.97297962877373,
+      "frameP95MedianMs": 15,
+      "frameP95RangeMs": [
+        14.5,
+        15.299999952316284
+      ],
+      "drawCallsP95": 206,
+      "trianglesP95": 26160
+    },
+    "webgpu": {
+      "runs": 3,
+      "fpsMedian": 74.97332153720734,
+      "frameP95MedianMs": 14.299999952316284,
+      "frameP95RangeMs": [
+        13.600000023841858,
+        15.800000071525576
+      ],
+      "drawCallsP95": 207,
+      "trianglesP95": 26161
+    }
+  }
+}

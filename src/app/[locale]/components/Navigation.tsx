@@ -23,6 +23,7 @@ export default function Navigation() {
     { href: '/projects', label: t('projects'), icon: '🖥️', isPrimary: false },
     { href: '/profile', label: t('profile'), icon: '👤', isPrimary: false },
     { href: '/blog', label: t('blog'), icon: '📝', isPrimary: false },
+    { href: '/city', label: 'CITY', icon: '🏙️', isPrimary: false },
     { href: '/pipboy', label: 'PIP-BOY', icon: '🎮', isPrimary: false },
   ];
 

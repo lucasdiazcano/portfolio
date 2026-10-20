@@ -6,7 +6,7 @@
   },
   "hero": {
     "name": "Lucas Diaz Cano",
-    "title": "Ingeniero Frontend Senior construyendo aplicaciones web escalables y liderando equipos de alto rendimiento en los sectores Fintech y Healthcare.",
+    "title": "Ingeniero Frontend Senior desarrollando y entregando funcionalidades para productos de banca y healthcare.",
     "altImage": "Lucas Diaz Cano"
   },
   "education": {
@@ -22,8 +22,9 @@
     "allTeamEnglish": "Toda la comunicación del equipo en inglés",
     "list": [
       {
+        "brandId": "bbva",
         "title": "Banco BBVA - Renovación Mobile & Web",
-        "description": "Lideré la renovación arquitectónica de las plataformas móvil y web de BBVA usando TypeScript y Micro-frontends (Open Cells). Diseñé un sistema modular de alto rendimiento para modernizar flujos legacy, mejorando significativamente la velocidad de desarrollo y la consistencia multiplataforma.",
+        "description": "Mi experiencia de mayor recorrido y donde hoy tengo mayor seniority. Participo como senior en el desarrollo y la entrega de funcionalidades para canales digitales de BBVA, con el contexto acumulado de trabajar sobre el producto.",
         "technologies": ["React", "TypeScript", "Open Cells", "Micro-frontends", "Fintech"],
         "sector": "Fintech",
         "client": "Banco BBVA",
@@ -31,8 +32,9 @@
         "context": "Transformación digital Fintech a gran escala"
       },
       {
+        "brandId": "johnson-and-johnson",
         "title": "Johnson & Johnson - Visualización de Datos",
-        "description": "Desarrollé una plataforma de análisis crítica para equipos globales (USA & Europa). Construí dashboards complejos en tiempo real con Recharts y Redux, asegurando 100% de integridad de datos a través de tipado estricto con TypeScript y Unit Testing (Jest).",
+        "description": "Participé como senior en desarrollo frontend para Johnson & Johnson, dentro de un equipo internacional. Mi aporte estuvo en implementar funcionalidades, integrar cambios y participar en las entregas del producto.",
         "technologies": ["React", "TypeScript", "Redux", "Recharts", "Jest", "Healthcare"],
         "sector": "Healthcare & Analytics",
         "client": "Johnson & Johnson",
@@ -41,8 +43,9 @@
         "englishCommunication": true
       },
       {
+        "brandId": "hipotecario",
         "title": "Banco Hipotecario - Core Banking",
-        "description": "Arquitecturé y lancé una plataforma bancaria core completa desde cero. Establecí protocolos rigurosos de Code Review y documentación técnica que redujeron los tiempos de desarrollo en un 30%. Enfocado en Accesibilidad (WCAG) y patrones de componentes reutilizables.",
+        "description": "Participé como senior en desarrollo frontend para Banco Hipotecario. Trabajé en funcionalidades del producto, integración de cambios y despliegues junto al equipo.",
         "technologies": ["React", "Redux", "TypeScript", "Cypress", "Agile/SCRUM"],
         "sector": "Fintech",
         "client": "Banco Hipotecario",
@@ -67,7 +70,7 @@
     "subtitle": "Ingeniero Frontend Senior con más de 5 años de experiencia",
     "about": {
       "title": "Acerca de",
-      "description": "Ingeniero Frontend Senior con más de 5 años de experiencia especializándome en el ecosistema React. Formación en Psicología Cognitiva, brindando una ventaja única en la construcción de UX/UI intuitivas y liderando equipos de alto rendimiento. Trayectoria comprobada en los sectores Fintech y Healthcare, entregando arquitecturas escalables para clientes globales."
+      "description": "Ingeniero Frontend Senior con experiencia en productos de banca y healthcare. Trabajo en Globant y participo en el desarrollo y despliegue de funcionalidades para sus clientes. Mi formación incluye Psicología en la Universidad de Palermo y desarrollo web en Plataforma 5."
     },
     "employment": {
       "title": "Historial Laboral",
@@ -75,7 +78,7 @@
       "position": "Ingeniero de Software Senior",
       "company": "Globant",
       "period": "Junio 2021 - Presente",
-      "description": "Liderando desarrollo frontend para clientes importantes en los sectores Fintech y Healthcare. Especializándome en el ecosistema React, arquitecturas escalables y aplicaciones de alto rendimiento."
+      "description": "Globant es mi empleador. Desde acá participo como senior en equipos que desarrollan productos para BBVA, Johnson & Johnson y Banco Hipotecario. Este salón conecta esas experiencias y mi crecimiento profesional."
     },
     "contact": {
       "title": "Contacto"
@@ -103,5 +106,125 @@
     "technologies": "Tecnologías",
     "sector": "Sector",
     "client": "Cliente"
+  },
+  "museum": {
+    "rooms": [
+      {
+        "brandId": "globant",
+        "client": "Globant",
+        "description": "Globant es mi empleador. Desde acá participo como senior en equipos que desarrollan productos para BBVA, Johnson & Johnson y Banco Hipotecario. Este salón conecta esas experiencias y mi crecimiento profesional.",
+        "label": "Globant",
+        "role": "Senior Software Engineer",
+        "sections": [
+          {
+            "body": "Trabajo en Globant. Las experiencias de las otras salas corresponden a mi participación en equipos para esos clientes.",
+            "title": "Mi vínculo"
+          },
+          {
+            "body": "Desarrollo funcionalidades, integro cambios y participo en sus despliegues. Mi aporte se da dentro del equipo, en colaboración con otros perfiles.",
+            "title": "Mi aporte como senior"
+          },
+          {
+            "body": "Banca y healthcare son los contextos en los que fui sumando experiencia. BBVA es hoy la experiencia con mayor recorrido y seniority de mi trayectoria.",
+            "title": "Mi recorrido"
+          }
+        ],
+        "sector": "Empleador · Desarrollo de software",
+        "technologies": ["Frontend", "Entrega de features", "Trabajo en equipo"],
+        "title": "El marco de mi trayectoria"
+      },
+      {
+        "brandId": "bbva",
+        "client": "BBVA",
+        "description": "Mi experiencia de mayor recorrido y donde hoy tengo mayor seniority. Participo como senior en el desarrollo y la entrega de funcionalidades para canales digitales de BBVA, con el contexto acumulado de trabajar sobre el producto.",
+        "label": "BBVA",
+        "role": "Senior Frontend Engineer",
+        "sections": [
+          {
+            "body": "Implementación e integración de funcionalidades de frontend dentro de los flujos del producto, trabajando sobre una base de código compartida.",
+            "title": "Desarrollo de features"
+          },
+          {
+            "body": "Participación en la validación de cambios y en sus despliegues, acompañando la evolución de las funcionalidades entregadas.",
+            "title": "Entrega y despliegue"
+          },
+          {
+            "body": "Mi mayor recorrido en esta cuenta me permite aportar más contexto del producto y del código, y abordar tareas con mayor autonomía y criterio técnico.",
+            "title": "Experiencia acumulada"
+          }
+        ],
+        "sector": "Cliente · Banca digital",
+        "technologies": ["TypeScript", "Open Cells", "Web Components", "Frontend"],
+        "title": "Experiencia y continuidad en banca"
+      },
+      {
+        "brandId": "johnson-and-johnson",
+        "client": "Johnson & Johnson",
+        "description": "Participé como senior en desarrollo frontend para Johnson & Johnson, dentro de un equipo internacional. Mi aporte estuvo en implementar funcionalidades, integrar cambios y participar en las entregas del producto.",
+        "label": "Johnson & Johnson",
+        "role": "Senior Frontend Engineer",
+        "sections": [
+          {
+            "body": "Desarrollo de interfaces y visualizaciones de datos dentro del producto, en colaboración con el equipo.",
+            "title": "Funcionalidades frontend"
+          },
+          {
+            "body": "Trabajo sobre cambios de frontend, su validación e integración, y participación en despliegues de funcionalidades.",
+            "title": "Calidad y entrega"
+          },
+          {
+            "body": "Experiencia de trabajo remoto con un equipo internacional y comunicación de trabajo en inglés.",
+            "title": "Colaboración internacional"
+          }
+        ],
+        "sector": "Cliente · Healthcare",
+        "technologies": ["React", "TypeScript", "Redux", "Recharts", "Jest"],
+        "title": "Frontend en un contexto global"
+      },
+      {
+        "brandId": "hipotecario",
+        "client": "Banco Hipotecario",
+        "description": "Participé como senior en desarrollo frontend para Banco Hipotecario. Trabajé en funcionalidades del producto, integración de cambios y despliegues junto al equipo.",
+        "label": "Banco Hipotecario",
+        "role": "Senior Frontend Engineer",
+        "sections": [
+          {
+            "body": "Desarrollo de funcionalidades e interfaces de frontend sobre el producto bancario, dentro de un equipo de desarrollo.",
+            "title": "Mi contribución"
+          },
+          {
+            "body": "Participación en la revisión e integración de cambios y en la entrega de funcionalidades a los entornos del producto.",
+            "title": "Integración y despliegue"
+          },
+          {
+            "body": "Una experiencia que forma parte de mi recorrido como senior en productos financieros y del criterio técnico que sigo desarrollando.",
+            "title": "Aprendizaje en banca"
+          }
+        ],
+        "sector": "Cliente · Banca",
+        "technologies": ["React", "Redux", "TypeScript", "Cypress"],
+        "title": "Construir funcionalidades para banca"
+      },
+      {
+        "brandId": "education",
+        "client": "Universidad de Palermo · Plataforma 5",
+        "description": "Mi formación reúne Psicología en la Universidad de Palermo y desarrollo web en el bootcamp de Plataforma 5. Dos etapas con focos distintos que forman parte de mi trayectoria.",
+        "label": "Formación",
+        "role": "Psicología · Desarrollo web",
+        "sections": [
+          {
+            "body": "Formación en Psicología. El interés por las personas, sus procesos y su forma de entender el mundo forma parte de mi mirada profesional.",
+            "title": "Universidad de Palermo"
+          },
+          {
+            "body": "Bootcamp de programación y desarrollo web, con formación en JavaScript, React, Node y SASS.",
+            "title": "Plataforma 5"
+          }
+        ],
+        "sector": "Formación",
+        "technologies": ["Psicología", "JavaScript", "React", "Node.js"],
+        "title": "Dos formas de entender y construir"
+      }
+    ]
   }
 }
